@@ -6,7 +6,7 @@
 
 .por-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
   max-width: 1200px;
@@ -39,4 +39,42 @@
 .por-post {
   font-size: 1rem;
   color: #a0aec0;
+}
+
+@media (max-width: 700px) {
+  .por-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.7rem;
+    padding: 1rem;
+  }
+  .por-card {
+    padding: 0.7rem;
+  }
+  .por-name {
+    font-size: 1rem;
+  }
+  .por-post {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .por-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  .por-card {
+    padding: 0.5rem;
+    border-radius: 8px;
+  }
+  .por-name {
+    font-size: 0.9rem;
+  }
+  .por-post {
+    font-size: 0.75rem;
+  }
+  .batch-por-container {
+    padding: 0.5rem;
+  }
 } 
