@@ -48,17 +48,17 @@
   min-height: 320px;
 }
 
+/* Fade-in effect for all text/button elements */
 .carousel-pretext,
 .carousel-maintext,
 .carousel-subtext,
 .carousel-button {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 300ms ease-in, transform 300ms ease-in;
+  transition: opacity 800ms cubic-bezier(.4,0,.2,1), transform 300ms cubic-bezier(.4,0,.2,1);
   pointer-events: none;
 }
 
-/* Show animation */
 .carousel-pretext.show,
 .carousel-maintext.show,
 .carousel-subtext.show,
@@ -116,15 +116,15 @@
 .carousel-button {
   background: #141D2A;
   color: #fff;
-  border: 1.5px solid #66FCF1;
-  border: none;
+  /* border: 1.5px solid #66FCF1; */
+  border: 1.5px solid #141D2A;
   border-radius: 2rem;
   padding: 0.8rem 2.2rem;
   font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  transition: opacity 300ms ease-in, transform 300ms ease-in, background 0.2s, color 0.2s;
+  transition: opacity 300ms cubic-bezier(.4,0,.2,1), transform 300ms cubic-bezier(.4,0,.2,1), background 0.2s, color 0.2s;
   opacity: 0;
   transform: translateY(40px);
   pointer-events: none;
@@ -171,5 +171,5 @@
 .carousel-button:active {
   background: #19212B;
   color: #fff;
-  border: 1.5px solid #fff;
+  border: 1.5px solid #66FCF1;
 }

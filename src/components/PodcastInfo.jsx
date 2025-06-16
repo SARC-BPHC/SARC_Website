@@ -1,4 +1,3 @@
-// PodcastInfo.js
 export function PodcastInfo() {
   return (
     <div

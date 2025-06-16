@@ -8,7 +8,6 @@ function PrevPor() {
         Welcome to the <strong>Previous Pors</strong> page!<br />
         Here you can explore the contributions of our past position holders (PORs).
       </p>
-      {/* Add your content, lists, or components here */}
     </div>
   );
 }

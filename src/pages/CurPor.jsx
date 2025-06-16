@@ -77,7 +77,7 @@ const peopleData = [
   {
     firstname: "Vipul",
     lastname: "Alampally",
-    designation: "Tech Head",
+    designation: "Tech Lead",
     year: "2024-2025",
     image: Vipul,
     linkedin: "https://www.linkedin.com/in/vipul-alampally-971566264/"
@@ -85,7 +85,7 @@ const peopleData = [
   {
     firstname: "Karandeep",
     lastname: "Singh",
-    designation: "Tech Head",
+    designation: "Tech Lead",
     year: "2024-2025",
     image: Karandeep,
     linkedin: "https://www.linkedin.com/in/karandeep-singh-sodhi-381683267/"

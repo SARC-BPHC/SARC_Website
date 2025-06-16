@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import './Events.css';
 
-// Image imports (adjust the paths as needed)
 import alumniMeetImg from '../assets/AlumniMeet.png';
 import wilpImg from '../assets/WILP.png';
 import bitsiansImg from '../assets/BitsiansDay.png';
 import farewellImg from '../assets/goat2.png';
 import batchsnapsImg from '../assets/BatchImg.png';
-import yearbookImg from '../assets/goat2.png';
+import yearbookImg from '../assets/yearbook.png';
 
 const events = [
   {

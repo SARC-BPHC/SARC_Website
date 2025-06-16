@@ -7,23 +7,19 @@ function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownTimeout = useRef();
 
-  // Show dropdown on hover
   const handleDropdownEnter = () => {
     clearTimeout(dropdownTimeout.current);
     setDropdownOpen(true);
   };
 
-  // Hide dropdown after slight delay on mouse leave
   const handleDropdownLeave = () => {
     dropdownTimeout.current = setTimeout(() => setDropdownOpen(false), 150);
   };
 
-  // Toggle dropdown on click (for accessibility/mobile)
   const handleDropdownClick = () => {
     setDropdownOpen((open) => !open);
   };
 
-  // Smooth scroll to footer
   const scrollToFooter = (event) => {
     event.preventDefault();
     const footer = document.getElementById('footer');
@@ -72,7 +68,6 @@ function Navbar() {
             </span>
           </Link>
           <Link to="/events" className="nav-link">Events</Link>
-          {/* Dropdown for Pors */}
           <div
             className="nav-link dropdown"
             style={{ position: 'relative', cursor: 'pointer', userSelect: 'none' }}
@@ -82,7 +77,6 @@ function Navbar() {
             tabIndex={0}
           >
             PORs
-            {/* Dropdown menu */}
             {dropdownOpen && (
               <div
                 className="dropdown-menu"
@@ -108,7 +102,6 @@ function Navbar() {
               </div>
             )}
           </div>
-          {/* Contact Us scrolls to footer */}
           <a href="#footer" onClick={scrollToFooter} className="nav-link" style={{ cursor: 'pointer' }}>
             <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <span>Contact</span>

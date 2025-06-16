@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 400px; /* You can adjust as needed */
+  max-width: 400px;
   box-sizing: border-box;
 }
 
@@ -42,13 +42,13 @@
   height: 100%;
   text-align: center;
   padding: 0 12px;
-  color: white; /* All text in this section is white */
+  color: white;
 }
 
 .person-designation {
   font-size: 1rem;
   font-weight: 600;
-  color: white; /* White text */
+  color: white;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin: 0;
@@ -60,7 +60,7 @@
   align-items: center;
   font-size: 1.3rem;
   font-weight: 700;
-  color: white; /* White text */
+  color: white;
   word-break: break-word;
   margin: 0;
 }
@@ -75,7 +75,7 @@
 
 .person-year {
   font-size: 1rem;
-  color: white; /* White text */
+  color: white;
   margin: 0;
 }
 

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import podcastImg from '../assets/Podcast.png';
 import { useState } from 'react';
 
-// Podcast image as a subcomponent
 function PodcastImage() {
   return (
     <div>
@@ -22,7 +21,6 @@ function PodcastImage() {
   );
 }
 
-// Podcast info as a subcomponent
 function PodcastInfo() {
   const [isHovered, setIsHovered] = useState(false);
 

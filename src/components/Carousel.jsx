@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Carousel.css';
 
-// Import your images and button icons
 import img1 from '../assets/Hero1.png';
 import img2 from '../assets/new1.png';
 import img3 from '../assets/Hero3.png';
@@ -10,7 +9,6 @@ import img4 from '../assets/Hero4.png';
 import leftButton from '../assets/leftButton.png';
 import rightButton from '../assets/rightButton.png';
 
-// Slides data
 const slides = [
   {
     image: img1,
@@ -23,65 +21,52 @@ const slides = [
     image: img2,
     pretext: "Our Voice",
     text: "ECHO",
-    subtext: "BITS Echo is the official student-run news and media body of BITS Pilani, Hyderabad Campus. It covers campus events, initiatives, and opinions through articles, reports, and multimedia content. Echo serves as a platform for students to voice perspectives and document the pulse of campus life.",
+    subtext: "BITS Pilani’s official monthly alumni newsletter, BITS ECHO connects the global BITSian community through campus stories, updates, and milestones.It commemorates success and builds lasting bonds among alumni, students, and faculty.",
     button: "READ NOW"
   },
   {
     image: img3,
     pretext: "Engaging",
     text: "EVENTS",
-    subtext: "At SARC, we regularly organize a range of events that cater to both students and alumni. These events are designed to foster meaningful connections, promote collaboration, and create opportunities for knowledge-sharing across batches.",
+    subtext: "On campus events: Hosting events that help students connect, celebrate and make lasting memories.",
     button: "VIEW EVENTS"
   },
   {
     image: img4,
     pretext: "Unplugged",
     text: "PODCAST",
-    subtext: "Unplugged is BITS Pilani’s official Spotify podcast that features engaging conversations with its alumni. It explores their journeys beyond campus, covering career choices, challenges, and personal growth. The podcast offers valuable insights and inspiration for students and listeners alike.",
+    subtext: "Alumni Unplugged is BITS Pilani's official Spotify podcast where alumni open up about their journeys.They share stories about their careers, challenges, and growth — giving students useful and inspiring insights.",
     button: "LISTEN NOW"
   }
 ];
 
 function Carousel() {
   const [current, setCurrent] = useState(0);
-  const [showPretext, setShowPretext] = useState(false);
-  const [showText, setShowText] = useState(false);
-  const [showSubtext, setShowSubtext] = useState(false);
-  const [showButton, setShowButton] = useState(false);
+  const [show, setShow] = useState(false);
+  const [animationKey, setAnimationKey] = useState(0);
+
   const navigate = useNavigate();
 
-  // Animation timings (ms)
-  const PRETEXT_DELAY = 0;
-  const TEXT_DELAY = 300;
-  const SUBTEXT_DELAY = 300;
-  const BUTTON_DELAY = 300;
+  const FADE_DELAY = 100; // ms
 
   const timeouts = useRef([]);
   const autoAdvanceRef = useRef();
   const lastInteraction = useRef(Date.now());
 
-  // Animation effect
   useEffect(() => {
-    setShowPretext(false);
-    setShowText(false);
-    setShowSubtext(false);
-    setShowButton(false);
+    setShow(false);
 
     timeouts.current.forEach(clearTimeout);
     timeouts.current = [];
 
-    timeouts.current.push(setTimeout(() => setShowPretext(true), PRETEXT_DELAY));
-    timeouts.current.push(setTimeout(() => setShowText(true), PRETEXT_DELAY + TEXT_DELAY));
-    timeouts.current.push(setTimeout(() => setShowSubtext(true), PRETEXT_DELAY + TEXT_DELAY + SUBTEXT_DELAY));
-    timeouts.current.push(setTimeout(() => setShowButton(true), PRETEXT_DELAY + TEXT_DELAY + SUBTEXT_DELAY + BUTTON_DELAY));
+    timeouts.current.push(setTimeout(() => setShow(true), FADE_DELAY));
 
     return () => {
       timeouts.current.forEach(clearTimeout);
       timeouts.current = [];
     };
-  }, [current]);
+  }, [current, animationKey]);
 
-  // Auto-advance logic
   useEffect(() => {
     if (autoAdvanceRef.current) clearTimeout(autoAdvanceRef.current);
 
@@ -96,14 +81,15 @@ function Carousel() {
     };
   }, [current]);
 
-  // Navigation handlers with timer reset
   const goToPrev = () => {
     lastInteraction.current = Date.now();
     setCurrent(prev => (prev === 0 ? slides.length - 1 : prev - 1));
+    setAnimationKey(prev => prev + 1);
   };
   const goToNext = () => {
     lastInteraction.current = Date.now();
     setCurrent(prev => (prev === slides.length - 1 ? 0 : prev + 1));
+    setAnimationKey(prev => prev + 1);
   };
 
   const handleButtonClick = () => {
@@ -119,41 +105,29 @@ function Carousel() {
 
   return (
     <div className="carousel-root">
-      {/* Carousel Image */}
       <img
         src={slides[current].image}
         alt={`Slide ${current + 1}`}
         className="carousel-image"
       />
-      {/* Overlay Content */}
       <div className="carousel-overlay">
         <div className="carousel-overlay-spacer"></div>
-        <div className="carousel-overlay-content">
-          {/* Pretext */}
-          <div
-            className={`carousel-pretext${showPretext ? ' show' : ''}`}
-          >
+        <div className="carousel-overlay-content" key={animationKey}>
+          <div className={`carousel-pretext${show ? ' show' : ''}`}>
             {slides[current].pretext}
           </div>
-          {/* Main Text */}
-          <div
-            className={`carousel-maintext${showText ? ' show' : ''}`}
-          >
+          <div className={`carousel-maintext${show ? ' show' : ''}`}>
             {slides[current].text}
           </div>
-          {/* Subtext */}
-          <div
-            className={`carousel-subtext${showSubtext ? ' show' : ''}`}
-          >
+          <div className={`carousel-subtext${show ? ' show' : ''}`}>
             {slides[current].subtext}
           </div>
-          {/* Button (not for first slide) */}
           {current !== 0 && (
             <div className="carousel-button-row">
               <button
-                className={`carousel-button${showButton ? ' show' : ''}`}
+                className={`carousel-button${show ? ' show' : ''}`}
                 onClick={handleButtonClick}
-                disabled={!showButton}
+                disabled={!show}
               >
                 {slides[current].button}
               </button>
@@ -162,7 +136,6 @@ function Carousel() {
         </div>
       </div>
 
-      {/* Left Navigation Button */}
       <button
         onClick={goToPrev}
         className="carousel-nav carousel-nav-left"
@@ -175,7 +148,6 @@ function Carousel() {
         />
       </button>
 
-      {/* Right Navigation Button */}
       <button
         onClick={goToNext}
         className="carousel-nav carousel-nav-right"
