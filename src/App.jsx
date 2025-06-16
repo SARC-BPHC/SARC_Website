@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import FadeInWrapper from './components/FadeInWrapper';
 import CurPor from './pages/CurPor';
 import PrevPor from './pages/PrevPor';
+import BatchPor from './pages/BatchPor';
 
 function App() {
   return (
@@ -57,6 +58,15 @@ function App() {
             <Navbar />
             <FadeInWrapper>
               <PrevPor />
+            </FadeInWrapper>
+            <Footer />
+          </>
+        } />
+        <Route path="/prevpor/:year" element={
+          <>
+            <Navbar />
+            <FadeInWrapper>
+              <BatchPor />
             </FadeInWrapper>
             <Footer />
           </>

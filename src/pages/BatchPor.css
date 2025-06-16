@@ -1,0 +1,42 @@
+.batch-por-container {
+  padding: 2rem;
+  min-height: 100vh;
+  background: #202833;
+}
+
+.por-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.por-card {
+  background: #2a3441;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.por-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background: #323d4d;
+}
+
+.por-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.por-post {
+  font-size: 1rem;
+  color: #a0aec0;
+} 
