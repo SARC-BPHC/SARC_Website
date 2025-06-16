@@ -3,7 +3,7 @@ import "./PersonCard.css";
 
 const PersonCard = ({ person }) => (
     <div className="person-card">
-      <img src={person.image} alt={`${person.firstname} ${person.lastname}`} className="person-image" />
+      <img loading="lazy" src={person.image} alt={`${person.firstname} ${person.lastname}`} className="person-image" />
       <div className="person-info">
         <div className="person-designation">{person.designation}</div>
         <div className="person-name">

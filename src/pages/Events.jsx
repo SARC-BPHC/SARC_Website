@@ -52,6 +52,7 @@ function EventRow({ title, image, description, reverse, altBg }) {
     <div className={`event-row${reverse ? ' reverse' : ''}${altBg ? ' alt-bg' : ''}`}>
       <div className="event-image-container">
         <img
+          loading="lazy"
           src={image}
           alt={title}
           className="event-image"
