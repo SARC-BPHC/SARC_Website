@@ -11,12 +11,13 @@ const porData = {
     { name: "Divya Daga", post: "Events Head", linkedin: "https://www.linkedin.com/in/divya-daga-180542258" },
     { name: "Shourya Khubber", post: "Events Head", linkedin: "https://www.linkedin.com/in/shourya-khubber-6b6321265" },
     { name: "Rana Raunitraz Singh", post: "Events Head", linkedin: "https://www.linkedin.com/in/rrrs-024a94250" },
+    { name: "Vipul Alampally", post: "Tech Head", linkedin: "https://www.linkedin.com/in/vipul-alampally-971566264" },
+    { name: "Karandeep Singh Sodhi", post: "Tech Head", linkedin: "https://www.linkedin.com/in/karandeepsinghsodhi" },
     { name: "Romil Goswami", post: "Content & Social Media Head", linkedin: "https://www.linkedin.com/in/romil-goswami-9838aa24b" },
     { name: "Sakshi Bharadwaj", post: "Content & Social Media Head", linkedin: "https://www.linkedin.com/in/sakshi-bharadwaj-887749257" },
     { name: "Vedant Bhatia", post: "Video-Editing Head", linkedin: "https://www.linkedin.com/in/vedant-bhatia" },
-    { name: "Prathmesh Deshmane", post: "Design Head", linkedin: "https://www.linkedin.com/in/prathamesh-deshmane-667310258" },
-    { name: "Vipul Alampally", post: "Tech Head", linkedin: "https://www.linkedin.com/in/vipul-alampally-971566264" },
-    { name: "Karandeep Singh Sodhi", post: "Tech Head", linkedin: "https://www.linkedin.com/in/karandeepsinghsodhi" }
+    { name: "Prathmesh Deshmane", post: "Design Head", linkedin: "https://www.linkedin.com/in/prathamesh-deshmane-667310258" }
+   
   ],
   "2023-2024": [
     { name: "Arjun Tyagi", post: "Student Coordinator", linkedin: "https://www.linkedin.com/in/arjun-tyagi-a85058241" },
