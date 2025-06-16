@@ -1,0 +1,104 @@
+/* General page styles */
+.events-page {
+  background: #f8f9fa;
+  min-height: 100vh;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Container for content */
+.events-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 2.5rem 1.5rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Page title */
+.events-title {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 2.1rem;
+  margin-bottom: 2.8rem;
+  letter-spacing: 0.03em;
+  padding-top: 2rem;
+  color: #202833;
+}
+
+/* Each event row */
+.event-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3.5rem 0;
+  gap: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Reverse row for alternating layout */
+.event-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Image container */
+.event-image-container {
+  flex: 0 0 588.44px;
+  display: flex;
+  max-width: 588.44px;
+  box-sizing: border-box;
+}
+
+/* Image styling */
+.event-image {
+  width: 100%;
+  max-width: 588.44px;
+  height: 328px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  background: #f2f2f2;
+  display: block;
+}
+
+/* Text container */
+.event-text {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Event title */
+.event-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.45rem;
+  margin: 0;
+  margin-bottom: 1.1rem;
+  letter-spacing: 0.01em;
+  color: #202833;
+}
+
+/* Event description */
+.event-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  color: #222;
+  margin: 0;
+  line-height: 1.7;
+  font-weight: 400;
+  white-space: pre-line;
+}
+
+.alt-bg {
+  background: #DBDEE6;
+  border-radius: 18px;
+  padding: 1.5rem 1.5rem;
+}

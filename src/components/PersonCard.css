@@ -1,0 +1,107 @@
+.person-card-outer {
+  background: #28a745;
+  padding: 12px 8px;
+  border-radius: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px; /* You can adjust as needed */
+  box-sizing: border-box;
+}
+
+.person-card {
+  background: #141D2A;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+  width: 100%;
+  height: 220px;
+  min-height: 206px;
+}
+
+.person-image {
+  width: 133px;
+  height: 100%;
+  border-radius: 16px 0 0 16px;
+  object-fit: cover;
+  background: #fffbe7;
+  flex-shrink: 0;
+  display: block;
+}
+
+.person-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  text-align: center;
+  padding: 0 12px;
+  color: white; /* All text in this section is white */
+}
+
+.person-designation {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white; /* White text */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.person-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white; /* White text */
+  word-break: break-word;
+  margin: 0;
+}
+
+.firstname {
+  font-weight: 700;
+}
+
+.lastname {
+  font-weight: 400;
+}
+
+.person-year {
+  font-size: 1rem;
+  color: white; /* White text */
+  margin: 0;
+}
+
+.linkedin-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #222;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-top: 6px;
+  transition: background 0.2s, border-color 0.2s;
+  text-decoration: none;
+}
+
+.linkedin-icon-btn:hover {
+  border-color: #66FCF1;
+}
+
+.linkedin-logo {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+
