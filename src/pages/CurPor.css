@@ -3,7 +3,7 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* much smaller min width */
   column-gap: 64px;
   row-gap: 16px;
-  padding: 0px 32px 32px 32px; /* less page padding */
+  padding: 0px 32px 32px 32px;
   justify-items: center;
   background: #202833;
   min-height: 100vh;
