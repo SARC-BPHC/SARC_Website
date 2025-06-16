@@ -106,6 +106,7 @@ function Carousel() {
   return (
     <div className="carousel-root">
       <img
+        loading="lazy"
         src={slides[current].image}
         alt={`Slide ${current + 1}`}
         className="carousel-image"
@@ -142,6 +143,7 @@ function Carousel() {
         aria-label="Previous"
       >
         <img
+          loading = "lazy"
           src={leftButton}
           alt="Previous"
           className="carousel-nav-img"
@@ -154,6 +156,7 @@ function Carousel() {
         aria-label="Next"
       >
         <img
+          loading = "lazy"
           src={rightButton}
           alt="Next"
           className="carousel-nav-img"
