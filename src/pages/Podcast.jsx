@@ -6,6 +6,7 @@ function PodcastImage() {
   return (
     <div>
       <img
+        loading="lazy"
         src={podcastImg}
         alt="Alumni Unplugged Podcast"
         style={{
