@@ -119,7 +119,7 @@ function Footer() {
         </div>
         <hr className="footer-hr" />
         <div className="footer-bottom">
-          Made with <span style={{ color: '#FF4A4A', fontSize: '1.1em', verticalAlign: 'middle' }}>♥</span> by SARC Tech Team
+          Made with <span style={{ color: '#FF4A4A', fontSize: '1.1em', verticalAlign: 'middle' }}>♥</span> by the SARC Tech Team
         </div>
       </footer>
 
