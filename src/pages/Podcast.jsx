@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import podcastImg from '../assets/Podcast.png';
-import { useState } from 'react';
+import './Podcast.css';
 
 function PodcastImage() {
   return (
@@ -9,14 +9,7 @@ function PodcastImage() {
         loading="lazy"
         src={podcastImg}
         alt="Alumni Unplugged Podcast"
-        style={{
-          width: 389,
-          height: 492,
-          borderRadius: '16px',
-          objectFit: 'cover',
-          boxShadow: '0 2px 12px rgba(0,0,0,0.15)',
-          background: '#19212B',
-        }}
+        className="podcast-image"
       />
     </div>
   );
@@ -48,9 +41,9 @@ function PodcastInfo() {
       </div>
       <button
         style={{
-          background: isHovered?'#fff':'#141D2A',
+          background: isHovered ? '#fff' : '#141D2A',
           color: isHovered ? '#141D2A' : '#fff',
-          border: isHovered? '1.5px solid #141D2A':'1.5px solid #141D2A',
+          border: '1.5px solid #141D2A',
           borderRadius: '2rem',
           fontWeight: 700,
           fontSize: 20,
@@ -85,41 +78,15 @@ function Podcast() {
 
   return (
     <>
-      <div
-        style={{
-          minHeight: '100vh',
-          background: '#202833',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontFamily: "'Montserrat', sans-serif",
-          padding: '4rem 0 4rem 0',
-          margin: '0',
-          boxSizing: 'border-box',
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            background: '#202833',
-            boxShadow: '0 4px 32px rgba(0, 0, 0, 0.15)',
-            maxWidth: '900px',
-            width: '100%',
-            alignItems: 'center',
-            gap: '6rem',
-            padding: '2rem 0.625rem',
-            boxSizing: 'border-box',
-          }}
-        >
+      <div className="podcast-main-wrapper">
+        <div className="podcast-content">
           <PodcastImage />
           <PodcastInfo />
         </div>
       </div>
-      {/* Padding ONLY between main content and Spotify frame */}
       <div style={{ height: '3rem', background: '#202833' }} />
-      {/* Spotify Embed with increased left/right padding */}
       <div style={{
-        padding: '0 2rem', // Increased left and right padding
+        padding: '0 2rem',
         background: '#202833',
         paddingTop: '2.5rem',
         paddingBottom: '0',
