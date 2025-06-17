@@ -1,13 +1,61 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import './PrevPor.css';
 
 function PrevPor() {
+  const navigate = useNavigate();
+
+  const batchYears = [
+    { 
+      year: "2024-2025",
+      image: "/batch2024.jpg",
+    },
+    { 
+      year: "2023-2024",
+      image: "/batch2023.jpg",
+    },
+    { 
+      year: "2022-2023",
+      image: "/batch2022.jpg",
+    }
+  ];
+
+  const handleBatchClick = (year) => {
+    navigate(`/prevpor/${year}`);
+  };
+
   return (
-    <div style={{ padding: '2rem', minHeight: '60vh' }}>
-      <h1 style={{ color: '#1e293b', marginBottom: '1rem' }}>Previous Pors</h1>
-      <p>
-        Welcome to the <strong>Previous Pors</strong> page!<br />
-        Here you can explore the contributions of our past position holders (PORs).
-      </p>
+    <div className="prev-por-container">
+      <h2 style={{ 
+        textAlign: 'center', 
+        marginBottom: '24px', 
+        color: 'white', 
+        padding: '80px 0 0 0', 
+        background: '#202833', 
+        fontFamily: 'Montessa, sans-serif' 
+      }}>
+        PREVIOUS PORS
+      </h2>
+      
+      <div className="batch-grid">
+        {batchYears.map((batch) => (
+          <div 
+            key={batch.year} 
+            className="batch-card"
+            onClick={() => handleBatchClick(batch.year)}
+          >
+            <div className="batch-image-container">
+              <img 
+                src={batch.image} 
+                alt={`Batch ${batch.year}`} 
+                className="batch-image"
+              />
+              <div className="batch-year-overlay">{batch.year}</div>
+            </div>
+            <div className="batch-description">{batch.description}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
