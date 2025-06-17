@@ -152,7 +152,7 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .carousel-root {
-    padding-top: 40px;
+    padding-top: 30px;
   }
 
   .carousel-overlay {
