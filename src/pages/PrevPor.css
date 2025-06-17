@@ -94,8 +94,19 @@
   margin: 0;
   flex-shrink: 0;
 }
+.heading {
+  text-align: center;
+  margin-bottom: 24px;
+  color: white;
+  padding: 80px 0 0 0;
+  background: #202833;
+  font-family: 'Montessa', sans-serif;
+}
 
 @media (max-width: 700px) {
+  .prev-por-container{
+    padding-top: 2rem;
+  }
   .batch-grid {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 1rem;

@@ -26,14 +26,7 @@ function PrevPor() {
 
   return (
     <div className="prev-por-container">
-      <h2 style={{ 
-        textAlign: 'center', 
-        marginBottom: '24px', 
-        color: 'white', 
-        padding: '80px 0 0 0', 
-        background: '#202833', 
-        fontFamily: 'Montessa, sans-serif' 
-      }}>
+      <h2 className="heading">
         PREVIOUS PORS
       </h2>
       
