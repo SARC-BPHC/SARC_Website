@@ -37,6 +37,7 @@
   width: 100%;
   box-sizing: border-box;
   max-width: 100%;
+  flex-wrap: wrap;
 }
 
 .event-row.reverse {
@@ -44,16 +45,18 @@
 }
 
 .event-image-container {
-  flex: 0 0 588.44px;
+  flex: 0 1 588.44px;
   display: flex;
   max-width: 588.44px;
   box-sizing: border-box;
+  justify-content: center;
 }
 
 .event-image {
   width: 100%;
   max-width: 588.44px;
-  height: 328px;
+  height: auto;
+  aspect-ratio: 16/9;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
@@ -62,7 +65,7 @@
 }
 
 .event-text {
-  flex: 1;
+  flex: 1 1 300px;
   min-width: 0;
   box-sizing: border-box;
 }
@@ -70,7 +73,7 @@
 .event-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 1.45rem;
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
   margin: 0;
   margin-bottom: 1.1rem;
   letter-spacing: 0.01em;
@@ -79,7 +82,7 @@
 
 .event-description {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
   color: #222;
   margin: 0;
   line-height: 1.7;
@@ -91,4 +94,55 @@
   background: #DBDEE6;
   border-radius: 18px;
   padding: 1.5rem 1.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .events-container {
+    padding: 3rem 0.5rem 2rem 0.5rem;
+  }
+  .event-row {
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  .event-image-container {
+    max-width: 400px;
+  }
+  .event-image {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .events-container {
+    padding: 2rem 0.2rem 1rem 0.2rem;
+  }
+  .event-row,
+  .event-row.reverse {
+    flex-direction: column !important;
+    align-items: stretch;
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+  }
+  .event-image-container,
+  .event-text {
+    max-width: 100%;
+    flex: none;
+    width: 100%;
+  }
+  .event-image {
+    max-width: 100%;
+    width: 100%;
+    aspect-ratio: 16/9;
+    height: auto;
+  }
+  .alt-bg {
+    padding: 1.2rem 0.8rem;
+    border-radius: 14px;
+  }
+  .events-title {
+    font-size: 1.3rem;
+    padding-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
 }
