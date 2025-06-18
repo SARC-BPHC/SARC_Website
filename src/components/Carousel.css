@@ -116,7 +116,6 @@
 .carousel-button {
   background: #141D2A;
   color: #fff;
-  /* border: 1.5px solid #66FCF1; */
   border: 1.5px solid #141D2A;
   border-radius: 2rem;
   padding: 0.8rem 2.2rem;
@@ -174,6 +173,49 @@
   border: 1.5px solid #66FCF1;
 }
 
+/* --- Responsive Styles for 1100px --- */
+@media (max-width: 1100px) {
+  .carousel-root {
+    height: 52vw;
+    min-height: 280px;
+    max-height: 520px;
+    padding-top: 48px;
+  }
+  .carousel-overlay-spacer {
+    width: 48px;
+  }
+  .carousel-pretext {
+    font-size: 32px;
+    min-height: 36px;
+  }
+  .carousel-maintext {
+    font-size: 64px;
+    min-height: 72px;
+  }
+  .carousel-subtext {
+    font-size: 18px;
+    min-height: 20px;
+    max-width: 80vw;
+  }
+  .carousel-button {
+    font-size: 1.05rem;
+    padding: 0.7rem 1.7rem;
+  }
+  .carousel-nav {
+    width: 50px;
+    height: 50px;
+  }
+  .carousel-nav-left {
+    left: 16px;
+  }
+  .carousel-nav-right {
+    right: 16px;
+  }
+  .carousel-overlay-content {
+    min-height: 140px;
+  }
+}
+
 /* --- Mobile Responsive Styles --- */
 @media (max-width: 900px) {
   .carousel-root {
@@ -213,7 +255,7 @@
     right: 8px;
   }
   .carousel-overlay-content {
-    min-height: 180px;
+    min-height: 100px;
   }
 }
 
@@ -233,7 +275,7 @@
   }
   .carousel-overlay-content {
     padding: 0 10vw 0 6vw;
-    min-height: 100px;
+    min-height: 70px;
   }
   .carousel-pretext {
     font-size: 16px;
