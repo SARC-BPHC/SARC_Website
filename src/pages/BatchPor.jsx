@@ -23,7 +23,7 @@ const porData = {
     { name: "Arjun Tyagi", post: "Student Coordinator", linkedin: "https://www.linkedin.com/in/arjun-tyagi-a85058241" },
     { name: "Sidhant Bhat", post: "Student Coordinator", linkedin: "https://www.linkedin.com/in/sidhant-bhat-234711227" },
     { name: "Dhruv Choudhary", post: "Student Coordinator", linkedin: "https://www.linkedin.com/in/dhruv-choudhary-594114233" },
-    { name: "Prachee Sharma", post: "Events Head", linkedin: "https://www.linkedin.com/in/prachee-sharma" },
+    { name: "Prachee Sharma", post: "Events Head", linkedin: "https://www.linkedin.com/in/prachee-sharma-/" },
     { name: "Ishita Mohile", post: "Events Head", linkedin: "https://www.linkedin.com/in/ishita-mohile-9457741a0" },
     { name: "Aastha Khare", post: "Events Head", linkedin: "https://www.linkedin.com/in/aastha-khare-14a10623a" },
     { name: "Vaka Ashrita Naidu", post: "Events Head", linkedin: "https://www.linkedin.com/in/vaka-ashrita" },
