@@ -4,7 +4,7 @@ import './Events.css';
 import alumniMeetImg from '../assets/AlumniMeet.png';
 import wilpImg from '../assets/WILP.png';
 import bitsiansImg from '../assets/BitsiansDay.png';
-import farewellImg from '../assets/goat2.png';
+import farewellImg from '../assets/farewell_Img.png';
 import batchsnapsImg from '../assets/eventBatchsnap.png';
 import yearbookImg from '../assets/yearbook.png';
 
