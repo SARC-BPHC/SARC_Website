@@ -25,7 +25,6 @@ const peopleData = [
     image: Likith,
     linkedin: "https://www.linkedin.com/in/likith-salla-413a2b25a/"
   },
-  
   {
     firstname: "Sakshi",
     lastname: "Hingane",
@@ -43,22 +42,6 @@ const peopleData = [
     linkedin: "https://www.linkedin.com/in/purabkukreja?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BGDWfXHbCQfSPoVMr9BVK8w%3D%3D"
   },
   {
-    firstname: "Rana",
-    lastname: "Raunitraz",
-    designation: "Events Head",
-    year: "2024-2025",
-    image: Rana,
-    linkedin: "https://www.linkedin.com/in/rrrs-024a94250/"
-  },
-  {
-    firstname: "Shourya",
-    lastname: "Khubber",
-    designation: "Events Head",
-    year: "2024-2025",
-    image: Shourya,
-    linkedin: "https://www.linkedin.com/in/shourya-khubber-6b6321265/"
-  },
-  {
     firstname: "Divya",
     lastname: "Daga",
     designation: "Events Head",
@@ -73,6 +56,22 @@ const peopleData = [
     year: "2024-2025",
     image: Akash,
     linkedin: "https://www.linkedin.com/in/akash-reddy-sangati-15679a212?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+  },
+  {
+    firstname: "Sakshi",
+    lastname: "Bharadwaj",
+    designation: "Content Head",
+    year: "2024-2025",
+    image: SakshiB,
+    linkedin: "https://www.linkedin.com/in/sakshi-bharadwaj-887749257/"
+  },
+  {
+    firstname: "Romil",
+    lastname: "Goswami",
+    designation: "Content Head",
+    year: "2024-2025",
+    image: Romil,
+    linkedin: "https://www.linkedin.com/in/romil-goswami-9838aa24b/"
   },
   {
     firstname: "Vipul",
@@ -99,22 +98,6 @@ const peopleData = [
     linkedin: "https://www.linkedin.com/in/vedant-bhatia-/"
   },
   {
-    firstname: "Sakshi",
-    lastname: "Bharadwaj",
-    designation: "Content Head",
-    year: "2024-2025",
-    image: SakshiB,
-    linkedin: "https://www.linkedin.com/in/sakshi-bharadwaj-887749257/"
-  },
-  {
-    firstname: "Romil",
-    lastname: "Goswami",
-    designation: "Content Head",
-    year: "2024-2025",
-    image: Romil,
-    linkedin: "https://www.linkedin.com/in/romil-goswami-9838aa24b/"
-  },
-  {
     firstname: "Prathamesh",
     lastname: "",
     designation: "Design Head",
@@ -122,6 +105,23 @@ const peopleData = [
     image: Prathamesh,
     linkedin: "https://www.linkedin.com/in/prathamesh-deshmane-667310258/"
   },
+  {
+    firstname: "Shourya",
+    lastname: "Khubber",
+    designation: "Events Head",
+    year: "2024-2025",
+    image: Shourya,
+    linkedin: "https://www.linkedin.com/in/shourya-khubber-6b6321265/"
+  },
+  {
+    firstname: "Rana",
+    lastname: "Raunitraz",
+    designation: "Events Head",
+    year: "2024-2025",
+    image: Rana,
+    linkedin: "https://www.linkedin.com/in/rrrs-024a94250/"
+  },
+  
 ];
 
 const CurPor = () => (
@@ -136,7 +136,6 @@ const CurPor = () => (
 }}>
   CURRENT PORS
 </h2>
-
 
     <div className="people-grid">
       {peopleData.map((person, idx) => (
