@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './Events.css';
 
 import alumniMeetImg from '../assets/AlumniMeet.png';
-import wilpImg from '../assets/WILP.png';
+import wilpImg from '../assets/WILPs.png';
 import bitsiansImg from '../assets/BitsiansDay.png';
 import farewellImg from '../assets/farewell_Img.png';
 import batchsnapsImg from '../assets/eventBatchsnap.png';
