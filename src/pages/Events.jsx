@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './Events.css';
 
-import alumniMeetImg from '../assets/AlumniMeet.png';
+import alumniMeetImg from '../assets/Reunions.png';
 import wilpImg from '../assets/WILPs.png';
 import bitsiansImg from '../assets/BitsiansDay.png';
 import farewellImg from '../assets/farewell_Img.png';
@@ -10,9 +10,9 @@ import yearbookImg from '../assets/yearbook.png';
 
 const events = [
   {
-    title: 'Alumni Meet',
+    title: 'ReUnions',
     image: alumniMeetImg,
-    description: `BITS Pilani, Hyderabad Campus, Alumni Meet is a grand event organized by SARC BPHC to unite past students, revive friendships, and cherish their experiences. At reunions, we manage all the ground-level logistics so that the alumni have a hassle-free experience. The meet includes guided tours of the campus, interactive panel discussions, performances by the Dance Club and Comedy Club of BPHC and recreational activities such as the Alumni Sports Meet and networking. It’s an opportunity to relive fond memories, see campus progress, and meet students, teachers, and fellow alumni. Let’s make these reunions special and build our ever-expanding BITSian community!`,
+    description: `BITS Pilani, Hyderabad Campus, Reunion is a grand event organized by SARC BPHC to unite past students, revive friendships, and cherish their experiences. At reunions, we manage all the ground-level logistics so that the alumni have a hassle-free experience. The meet includes guided tours of the campus, interactive panel discussions, performances by the Dance Club and Comedy Club of BPHC and recreational activities such as the Alumni Sports Meet and networking. It’s an opportunity to relive fond memories, see campus progress, and meet students, teachers, and fellow alumni. Let’s make these reunions special and build our ever-expanding BITSian community!`,
     reverse: false,
   },
   {
