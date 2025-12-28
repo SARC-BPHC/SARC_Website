@@ -71,6 +71,14 @@
   margin-bottom: 0.8rem;
   color: #fff;
 }
+
+.footer-brand-subtitle {
+  color: #b0b0c0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
 .footer-section-links {
   display: flex;
   flex-direction: column;

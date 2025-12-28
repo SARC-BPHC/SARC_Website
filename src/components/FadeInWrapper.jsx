@@ -1,32 +1,45 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-function FadeInWrapper({ children, duration = 500 }) {
+function FadeInWrapper({ children, duration = 400, stagger = false, className = "" }) {
   const ref = useRef();
   const location = useLocation();
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Reset opacity to 0 instantly
     if (ref.current) {
-      ref.current.style.opacity = 0;
-      ref.current.style.transition = "none";
+      setIsVisible(false);
+      
+      const animatableElements = ref.current.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+      animatableElements.forEach(el => el.classList.remove('animate'));
     }
-    // Animate to 1 after a short delay
-    const t = setTimeout(() => {
+
+    const timer = setTimeout(() => {
+      setIsVisible(true);
       if (ref.current) {
-        ref.current.style.transition = `opacity ${duration}ms ease`;
-        ref.current.style.opacity = 1;
+        const animatableElements = ref.current.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+        
+        if (stagger && animatableElements.length > 1) {
+          animatableElements.forEach((el, index) => {
+            setTimeout(() => {
+              el.classList.add('animate');
+            }, index * 100);
+          });
+        } else {
+          animatableElements.forEach(el => el.classList.add('animate'));
+        }
       }
-    }, 30);
-    return () => clearTimeout(t);
-  }, [location.pathname, duration]);
+    }, 50);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname, stagger]);
 
   return (
     <div
       ref={ref}
+      className={`fade-in ${isVisible ? 'animate' : ''} ${className}`}
       style={{
-        opacity: 0,
-        willChange: "opacity",
+        willChange: "opacity, transform",
       }}
     >
       {children}

@@ -1,0 +1,308 @@
+:root {
+  --animation-speed-slow: 800ms;
+  --animation-speed-normal: 400ms;
+  --animation-speed-fast: 200ms;
+  --animation-easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --animation-easing-sharp: cubic-bezier(0.4, 0, 0.6, 1);
+  --animation-distance: 40px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transform: none !important;
+  }
+  
+  .hover-scale,
+  .hover-lift,
+  .hover-tilt,
+  .button-press {
+    transform: none !important;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(var(--animation-distance));
+  transition: opacity var(--animation-speed-normal) var(--animation-easing-smooth),
+              transform var(--animation-speed-normal) var(--animation-easing-smooth);
+  will-change: opacity, transform;
+}
+
+.fade-in.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-fast {
+  opacity: 0;
+  transform: translateY(calc(var(--animation-distance) * 0.5));
+  transition: opacity var(--animation-speed-fast) var(--animation-easing-smooth),
+              transform var(--animation-speed-fast) var(--animation-easing-smooth);
+  will-change: opacity, transform;
+}
+
+.fade-in-fast.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-slow {
+  opacity: 0;
+  transform: translateY(var(--animation-distance));
+  transition: opacity var(--animation-speed-slow) var(--animation-easing-smooth),
+              transform var(--animation-speed-slow) var(--animation-easing-smooth);
+  will-change: opacity, transform;
+}
+
+.fade-in-slow.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(calc(var(--animation-distance) * -1));
+  transition: opacity var(--animation-speed-normal) var(--animation-easing-smooth),
+              transform var(--animation-speed-normal) var(--animation-easing-smooth);
+  will-change: opacity, transform;
+}
+
+.slide-in-left.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(var(--animation-distance));
+  transition: opacity var(--animation-speed-normal) var(--animation-easing-smooth),
+              transform var(--animation-speed-normal) var(--animation-easing-smooth);
+  will-change: opacity, transform;
+}
+
+.slide-in-right.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity var(--animation-speed-normal) var(--animation-easing-bounce),
+              transform var(--animation-speed-normal) var(--animation-easing-bounce);
+  will-change: opacity, transform;
+}
+
+.scale-in.animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.stagger-1 { transition-delay: 0ms; }
+.stagger-2 { transition-delay: 100ms; }
+.stagger-3 { transition-delay: 200ms; }
+.stagger-4 { transition-delay: 300ms; }
+.stagger-5 { transition-delay: 400ms; }
+.stagger-6 { transition-delay: 500ms; }
+
+.hover-scale {
+  transition: transform var(--animation-speed-fast) var(--animation-easing-smooth),
+              box-shadow var(--animation-speed-fast) var(--animation-easing-smooth);
+  will-change: transform, box-shadow;
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+.hover-lift {
+  transition: transform var(--animation-speed-fast) var(--animation-easing-smooth),
+              box-shadow var(--animation-speed-fast) var(--animation-easing-smooth);
+  will-change: transform, box-shadow;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.hover-tilt {
+  transition: transform var(--animation-speed-fast) var(--animation-easing-smooth);
+  will-change: transform;
+}
+
+.hover-tilt:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) rotateZ(1deg);
+}
+
+.button-press {
+  transition: transform var(--animation-speed-fast) var(--animation-easing-sharp),
+              box-shadow var(--animation-speed-fast) var(--animation-easing-sharp);
+  will-change: transform, box-shadow;
+}
+
+.button-press:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.pulse-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.pulse-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 600ms var(--animation-easing-smooth);
+}
+
+.pulse-glow:hover::after {
+  left: 100%;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.parallax {
+  will-change: transform;
+  transition: transform var(--animation-speed-fast) linear;
+}
+
+.intersection-observer {
+  opacity: 0;
+  transform: translateY(var(--animation-distance));
+  transition: opacity var(--animation-speed-normal) var(--animation-easing-smooth),
+              transform var(--animation-speed-normal) var(--animation-easing-smooth);
+  will-change: opacity, transform;
+}
+
+.intersection-observer.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.glow-border {
+  position: relative;
+  border-radius: inherit;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #66FCF1, #66FCF1, transparent, transparent);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity var(--animation-speed-normal) var(--animation-easing-smooth);
+  z-index: -1;
+}
+
+.glow-border:hover::before {
+  opacity: 1;
+}
+
+.smooth-border-radius {
+  transition: border-radius var(--animation-speed-normal) var(--animation-easing-smooth);
+}
+
+.text-reveal {
+  overflow: hidden;
+}
+
+.text-reveal > * {
+  opacity: 0;
+  transform: translateY(100%);
+  display: inline-block;
+  transition: opacity var(--animation-speed-normal) var(--animation-easing-smooth),
+              transform var(--animation-speed-normal) var(--animation-easing-smooth);
+  will-change: opacity, transform;
+}
+
+.text-reveal.animate > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modal-backdrop {
+  opacity: 0;
+  transition: opacity var(--animation-speed-normal) var(--animation-easing-smooth);
+  will-change: opacity;
+}
+
+.modal-backdrop.show {
+  opacity: 1;
+}
+
+.modal-content {
+  opacity: 0;
+  transform: scale(0.8) translateY(var(--animation-distance));
+  transition: opacity var(--animation-speed-normal) var(--animation-easing-bounce),
+              transform var(--animation-speed-normal) var(--animation-easing-bounce);
+  will-change: opacity, transform;
+}
+
+.modal-content.show {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.nav-underline {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #66FCF1;
+  transform: translateX(-100%);
+  transition: transform var(--animation-speed-normal) var(--animation-easing-smooth);
+  border-radius: 2px;
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.nav-underline:hover::after,
+.nav-underline.active::after {
+  transform: translateX(0);
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.prevent-layout-shift {
+  contain: layout style paint;
+}

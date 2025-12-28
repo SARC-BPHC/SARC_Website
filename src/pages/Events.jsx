@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Events.css';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 import alumniMeetImg from '../assets/Reunions.png';
 import wilpImg from '../assets/WILPs.png';
@@ -47,26 +48,71 @@ const events = [
   },
 ];
 
-function EventRow({ title, image, description, reverse, altBg }) {
+function EventCard({ event, onClick, index }) {
+  const [ref, isIntersecting] = useIntersectionObserver({
+    threshold: 0.2,
+    rootMargin: '-50px 0px'
+  });
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className={`event-row${reverse ? ' reverse' : ''}${altBg ? ' alt-bg' : ''}`}>
-      <div className="event-image-container">
+    <div 
+      ref={ref}
+      className={`event-card intersection-observer ${isIntersecting ? 'in-view' : ''} scale-in ${isIntersecting ? 'animate' : ''}`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+      onClick={() => onClick(event)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="event-card-image-container">
         <img
           loading="lazy"
-          src={image}
-          alt={title}
-          className="event-image"
+          src={event.image}
+          alt={event.title}
+          className="event-card-image"
         />
+        <div className={`event-card-overlay ${isHovered ? 'visible' : ''}`}>
+          <div className="event-card-content">
+            <h3 className="event-card-title">{event.title}</h3>
+            <p className="event-card-subtitle">Click to learn more</p>
+          </div>
+        </div>
       </div>
-      <div className="event-text">
-        <h2 className="event-title">{title}</h2>
-        <p className="event-description">{description}</p>
+    </div>
+  );
+}
+
+function EventDialog({ event, isOpen, onClose }) {
+  if (!isOpen || !event) return null;
+
+  return (
+    <div className={`event-dialog-backdrop ${isOpen ? 'open' : ''}`} onClick={onClose}>
+      <div className={`event-dialog ${isOpen ? 'open' : ''}`} onClick={(e) => e.stopPropagation()}>
+        <button className="event-dialog-close" onClick={onClose}>
+          ×
+        </button>
+        <div className="event-dialog-content">
+          <div className="event-dialog-image-container">
+            <img
+              src={event.image}
+              alt={event.title}
+              className="event-dialog-image"
+            />
+          </div>
+          <div className="event-dialog-text">
+            <h2 className="event-dialog-title">{event.title}</h2>
+            <p className="event-dialog-description">{event.description}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
 function EventsPage() {
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   useEffect(() => {
     const prevOverflow = document.body.style.overflowX;
     document.body.style.overflowX = 'hidden';
@@ -75,18 +121,56 @@ function EventsPage() {
     };
   }, []);
 
+  useEffect(() => {
+    if (isDialogOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isDialogOpen]);
+
+  const handleEventClick = (event) => {
+    setSelectedEvent(event);
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+    setTimeout(() => setSelectedEvent(null), 300);
+  };
+
   return (
     <div className="events-page">
-      <div className="events-container">
-        <h1 className="events-title">EVENTS</h1>
-        {events.map((event, i) => (
-          <EventRow
-            key={event.title}
-            {...event}
-            altBg={i % 2 === 0}
-          />
-        ))}
+      <div className="events-hero">
+        <div className="events-hero-content">
+          <h1 className="events-title fade-in animate">Events</h1>
+          <p className="events-subtitle fade-in animate">
+            Discover the memorable moments that bring our community together
+          </p>
+        </div>
       </div>
+
+      <div className="events-section">
+        <div className="events-grid">
+          {events.map((event, index) => (
+            <EventCard
+              key={event.title}
+              event={event}
+              index={index}
+              onClick={handleEventClick}
+            />
+          ))}
+        </div>
+      </div>
+      
+      <EventDialog
+        event={selectedEvent}
+        isOpen={isDialogOpen}
+        onClose={handleCloseDialog}
+      />
     </div>
   );
 }

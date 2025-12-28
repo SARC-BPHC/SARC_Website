@@ -43,7 +43,7 @@
 .podcast-listen-btn {
   background: #141D2A;
   color: #fff;
-  border: none;
+  border: 2px solid #141D2A;
   border-radius: 2rem;
   font-weight: 700;
   font-size: 20px;
@@ -51,11 +51,25 @@
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(32,40,51,0.15);
   letter-spacing: 1px;
-  transition: background 0.2s, color 0.2s;
+  transition: background var(--animation-speed-fast) var(--animation-easing-smooth),
+              color var(--animation-speed-fast) var(--animation-easing-smooth),
+              border-color var(--animation-speed-fast) var(--animation-easing-smooth),
+              transform var(--animation-speed-fast) var(--animation-easing-smooth),
+              box-shadow var(--animation-speed-fast) var(--animation-easing-smooth);
   margin: 0 auto;
   display: block;
+  will-change: background, color, border-color, transform, box-shadow;
+  position: relative;
+  overflow: hidden;
 }
 
 .podcast-listen-btn:hover {
   color: #66FCF1;
+  border-color: #66FCF1;
+  box-shadow: 0 4px 16px rgba(102, 252, 241, 0.2);
+  transform: translateY(-2px);
+}
+
+.podcast-listen-btn:active {
+  transform: translateY(0) scale(0.98);
 }

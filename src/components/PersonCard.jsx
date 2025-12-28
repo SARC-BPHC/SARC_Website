@@ -2,7 +2,7 @@ import React from "react";
 import "./PersonCard.css";
 
 const PersonCard = ({ person }) => (
-    <div className="person-card">
+    <div className="person-card hover-lift">
       <img loading="lazy" src={person.image} alt={`${person.firstname} ${person.lastname}`} className="person-image" />
       <div className="person-info">
         <div className="person-designation">{person.designation}</div>
@@ -15,7 +15,7 @@ const PersonCard = ({ person }) => (
           href={person.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="linkedin-icon-btn"
+          className="linkedin-icon-btn hover-scale pulse-glow"
           aria-label="LinkedIn"
         >
           <svg

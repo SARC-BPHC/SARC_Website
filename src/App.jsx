@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Events from './pages/Events';
 import Pors from './pages/Pors';
 import Podcast from './pages/Podcast';
+import SocialFeed from './pages/SocialFeed';
 import Navbar from './components/Navbar';
 import FadeInWrapper from './components/FadeInWrapper';
 import CurPor from './pages/CurPor';
@@ -20,7 +21,7 @@ function App() {
         <Route path="/events" element={
           <>
             <Navbar />
-            <FadeInWrapper>
+            <FadeInWrapper stagger={true}>
               <Events />
             </FadeInWrapper>
             <Footer />
@@ -29,7 +30,7 @@ function App() {
         <Route path="/podcast" element={
           <>
             <Navbar />
-            <FadeInWrapper>
+            <FadeInWrapper stagger={true}>
               <Podcast />
             </FadeInWrapper>
             <Footer />
@@ -56,7 +57,7 @@ function App() {
         <Route path="/prevpor" element={
           <>
             <Navbar />
-            <FadeInWrapper>
+            <FadeInWrapper stagger={true}>
               <PrevPor />
             </FadeInWrapper>
             <Footer />
@@ -65,8 +66,17 @@ function App() {
         <Route path="/prevpor/:year" element={
           <>
             <Navbar />
-            <FadeInWrapper>
+            <FadeInWrapper stagger={true}>
               <BatchPor />
+            </FadeInWrapper>
+            <Footer />
+          </>
+        } />
+        <Route path="/social" element={
+          <>
+            <Navbar />
+            <FadeInWrapper stagger={true}>
+              <SocialFeed />
             </FadeInWrapper>
             <Footer />
           </>
