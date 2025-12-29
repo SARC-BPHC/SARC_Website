@@ -13,7 +13,7 @@ const slides = [
   {
     image: img1,
     pretext: "We Are",
-    text: "SARC",
+    text: "We are SARC",
     subtext: "We at SARC connects alumni with current students to foster mentorship, networking, and collaboration. We bridge generations of BITSians through initiatives that share knowledge and experiences. SARC aims to strengthen the BITSian legacy and support student growth through active alumni engagement.",
     button: "Light"
   },
@@ -112,28 +112,33 @@ function Carousel() {
         className="carousel-image"
       />
       <div className="carousel-overlay">
-        <div className="carousel-overlay-spacer"></div>
-        <div className="carousel-overlay-content" key={animationKey}>
-          <div className={`carousel-pretext${show ? ' show' : ''}`}>
-            {slides[current].pretext}
+        <div className="carousel-overlay-gradient"></div>
+        <div className="carousel-content-wrapper">
+          <div className="carousel-content-card" key={animationKey}>
+            
+            <h1 className={`carousel-title${show ? ' show' : ''}`}>
+              {slides[current].text}
+            </h1>
+            
+            <p className={`carousel-description${show ? ' show' : ''}`}>
+              {slides[current].subtext}
+            </p>
+            
+            {current !== 0 && (
+              <div className="carousel-action-section">
+                <button
+                  className={`carousel-cta-button${show ? ' show' : ''}`}
+                  onClick={handleButtonClick}
+                  disabled={!show}
+                >
+                  <span>{slides[current].button}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            )}
           </div>
-          <div className={`carousel-maintext${show ? ' show' : ''}`}>
-            {slides[current].text}
-          </div>
-          <div className={`carousel-subtext${show ? ' show' : ''}`}>
-            {slides[current].subtext}
-          </div>
-          {current !== 0 && (
-            <div className="carousel-button-row">
-              <button
-                className={`carousel-button${show ? ' show' : ''}`}
-                onClick={handleButtonClick}
-                disabled={!show}
-              >
-                {slides[current].button}
-              </button>
-            </div>
-          )}
         </div>
       </div>
 
