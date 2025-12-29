@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AnimatedButton from './AnimatedButton';
 import './Carousel.css';
 
 import img1 from '../assets/Hero1.png';
@@ -95,7 +96,7 @@ function Carousel() {
   const handleButtonClick = () => {
     lastInteraction.current = Date.now();
     if (current === 1) {
-      window.open('https://www.bits-pilani.ac.in/alumni/bits-echo-newsletter/', '_blank', 'noopener,noreferrer');
+      navigate('/echo');
     } else if (current === 2) {
       navigate('/events');
     } else if (current === 3) {
@@ -126,16 +127,13 @@ function Carousel() {
             
             {current !== 0 && (
               <div className="carousel-action-section">
-                <button
-                  className={`carousel-cta-button${show ? ' show' : ''}`}
+                <AnimatedButton
+                  className={`carousel-cta-animated${show ? ' show' : ''}`}
                   onClick={handleButtonClick}
                   disabled={!show}
                 >
-                  <span>{slides[current].button}</span>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
-                </button>
+                  {slides[current].button}
+                </AnimatedButton>
               </div>
             )}
           </div>

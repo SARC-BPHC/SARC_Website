@@ -28,6 +28,14 @@ const Echo = () => {
             From academic journeys to personal growth, our students share their stories 
             that inspire, educate, and connect.
           </p>
+          <div className="echo-actions fade-in animate">
+            <button 
+              className="echo-btn primary"
+              onClick={() => window.open('https://www.bits-pilani.ac.in/alumni/bits-echo-newsletter/', '_blank', 'noopener,noreferrer')}
+            >
+              READ OFFICIAL NEWSLETTER
+            </button>
+          </div>
         </div>
       </div>
 

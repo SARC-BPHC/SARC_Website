@@ -72,10 +72,46 @@
 .echo-description {
   font-size: 1rem;
   color: #b0b0b0;
-  margin: 0;
+  margin: 0 0 2rem 0;
   line-height: 1.6;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto 2rem auto;
+}
+
+.echo-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.echo-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.echo-btn.primary {
+  background: linear-gradient(135deg, #66FCF1 0%, #4ecdc4 100%);
+  color: #141D2A;
+  box-shadow: 0 4px 20px rgba(102, 252, 241, 0.3);
+}
+
+.echo-btn.primary:hover {
+  box-shadow: 0 6px 25px rgba(102, 252, 241, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-icon {
+  font-size: 1.1rem;
 }
 
 .echo-content {

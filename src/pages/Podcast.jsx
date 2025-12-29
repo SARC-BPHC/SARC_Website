@@ -73,8 +73,11 @@ function PodcastHero() {
               <span className="btn-icon">▶</span>
               Listen on Spotify
             </button>
-            <button className="podcast-btn secondary button-press hover-scale">
-              Subscribe
+            <button 
+              className="podcast-btn secondary button-press hover-scale"
+              onClick={() => window.open('https://open.spotify.com/show/22sn2XUuxN5y5gVt7BitDi', '_blank', 'noopener,noreferrer')}
+            >
+              Follow
             </button>
           </div>
         </div>
