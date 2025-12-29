@@ -106,8 +106,8 @@ export default function SocialFeed() {
             <div 
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-                gap: '2rem',
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gap: 'clamp(1rem, 4vw, 3rem)',
                 alignItems: 'start'
               }}
             >
