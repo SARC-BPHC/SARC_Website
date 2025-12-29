@@ -62,6 +62,7 @@ function Navbar() {
               </div>
             )}
           </div>
+          <Link to="/echo" className="nav-link">Echo</Link>
           <Link to="/social" className="nav-link">Social</Link>
           <a href="#footer" onClick={scrollToFooter} className="nav-link" style={{ cursor: 'pointer' }}>
             <span className="nav-link-stack">
