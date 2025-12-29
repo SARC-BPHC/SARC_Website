@@ -9,7 +9,6 @@ export default function SocialFeed() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Load Instagram embed script
     if (!document.querySelector('script[src*="instagram.com/embed.js"]')) {
       const script = document.createElement('script');
       script.src = 'https://www.instagram.com/embed.js';
@@ -17,9 +16,8 @@ export default function SocialFeed() {
       document.body.appendChild(script);
     }
 
-    // Check screen size
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 1024);
+      setIsMobile(window.innerWidth < 900);
     };
 
     checkScreenSize();
@@ -27,7 +25,6 @@ export default function SocialFeed() {
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  // Combine and interleave posts for mobile
   const combinedPosts = [];
   const maxLength = Math.max(linkedinPosts.length, instagramPosts.length);
 
@@ -105,80 +102,29 @@ export default function SocialFeed() {
             </EmblaCarousel>
           </div>
         ) : (
-          // Desktop: Two-column feed
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 gap-12 items-start">
-              {/* LinkedIn Column */}
-              <div className="flex flex-col gap-16">
-                <div className="text-left pl-4">
-                  <h2
-                    style={{
-                      fontSize: '1.5rem',
-                      fontWeight: 800,
-                      margin: '0 0 1rem 0',
-                      color: '#202833'
-                    }}
-                  >
-                    LinkedIn Updates
-                  </h2>
-                  <div
-                    style={{
-                      width: '60px',
-                      height: '3px',
-                      background: 'linear-gradient(90deg, #0077B5 0%, #005885 100%)',
-                      marginBottom: '1rem'
-                    }}
-                  ></div>
+          <div className="max-w-7xl mx-auto">
+            <div 
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+                gap: '2rem',
+                alignItems: 'start'
+              }}
+            >
+              {combinedPosts.map((post, index) => (
+                <div
+                  key={`${post.platform}-${post.id}`}
+                  style={{
+                    breakInside: 'avoid',
+                    marginBottom: index % 3 === 0 ? '1rem' : index % 3 === 1 ? '2rem' : '0.5rem'
+                  }}
+                >
+                  <SocialPostCard
+                    post={post}
+                    platform={post.platform}
+                  />
                 </div>
-                {linkedinPosts.map(post => (
-                  <div
-                    key={post.id}
-                    className="flex justify-center"
-                    style={{ marginBottom: '2rem' }}
-                  >
-                    <SocialPostCard
-                      post={post}
-                      platform="linkedin"
-                    />
-                  </div>
-                ))}
-              </div>
-
-              {/* Instagram Column */}
-              <div className="flex flex-col gap-16">
-                <div className="text-left pl-4">
-                  <h2
-                    style={{
-                      fontSize: '1.5rem',
-                      fontWeight: 800,
-                      margin: '0 0 1rem 0',
-                      color: '#202833'
-                    }}
-                  >
-                    Instagram Highlights
-                  </h2>
-                  <div
-                    style={{
-                      width: '60px',
-                      height: '3px',
-                      background: 'linear-gradient(90deg, #E4405F 0%, #833AB4 50%, #C13584 100%)',
-                      marginBottom: '1rem'
-                    }}
-                  ></div>
-                </div>
-                {instagramPosts.map(post => (
-                  <div
-                    key={post.id}
-                    className="flex justify-center"
-                    style={{ marginBottom: '2rem' }}
-                  >
-                    <SocialPostCard
-                      post={post}
-                      platform="instagram"
-                    />
-                  </div>
-                ))}
-              </div>
+              ))}
             </div>
           </div>
         )}

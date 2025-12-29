@@ -40,17 +40,18 @@ export default function SocialPostCard({ post, platform }) {
   const config = platformConfig[platform];
 
   return (
-    <div ref={cardRef} className="w-full max-w-[520px] mx-auto pb-12">
+    <div ref={cardRef} className="w-full max-w-[480px] mx-auto">
       <div 
         style={{
           background: 'linear-gradient(135deg, #1a2332 0%, #202b3a 100%)',
-          borderRadius: '20px',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
+          borderRadius: '16px',
+          boxShadow: '0 6px 24px rgba(0,0,0,0.12)',
           border: '1px solid rgba(102, 252, 241, 0.1)',
           overflow: 'hidden',
-          transition: 'all 0.3s ease',
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          transform: 'translateZ(0)'
         }}
-        className="hover:shadow-2xl hover:border-opacity-20"
+        className="hover:shadow-xl hover:border-opacity-30 hover:-translate-y-1"
       >
         {/* Platform Header */}
         <div 
@@ -101,18 +102,18 @@ export default function SocialPostCard({ post, platform }) {
         <div 
           style={{
             background: '#f8f9fa',
-            padding: '20px 24px 16px 24px',
-            minHeight: platform === 'linkedin' ? '500px' : 'auto'
+            padding: '16px 20px 12px 20px',
+            minHeight: platform === 'linkedin' ? '580px' : 'auto'
           }}
         >
           {platform === 'linkedin' ? (
             <div 
               style={{
                 width: '100%',
-                height: '460px',
-                borderRadius: '12px',
+                height: '540px',
+                borderRadius: '10px',
                 overflow: 'hidden',
-                boxShadow: '0 4px 16px rgba(0,0,0,0.1)'
+                boxShadow: '0 3px 12px rgba(0,0,0,0.08)'
               }}
             >
               <iframe
@@ -131,13 +132,13 @@ export default function SocialPostCard({ post, platform }) {
                 display: 'flex',
                 justifyContent: 'center',
                 background: 'white',
-                borderRadius: '12px',
-                padding: '12px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+                borderRadius: '10px',
+                padding: '8px',
+                boxShadow: '0 2px 6px rgba(0,0,0,0.04)'
               }}
             >
               <div
-                style={{ maxWidth: '480px' }}
+                style={{ maxWidth: '440px' }}
                 dangerouslySetInnerHTML={{ __html: post.embedHtml }}
               />
             </div>
@@ -148,7 +149,7 @@ export default function SocialPostCard({ post, platform }) {
         <div 
           style={{
             background: 'linear-gradient(135deg, #202b3a 0%, #2a3441 100%)',
-            padding: '12px 20px',
+            padding: '10px 20px',
             borderTop: '1px solid rgba(102, 252, 241, 0.1)'
           }}
         >
@@ -166,11 +167,11 @@ export default function SocialPostCard({ post, platform }) {
             </span>
             <div 
               style={{
-                width: '6px',
-                height: '6px',
+                width: '4px',
+                height: '4px',
                 borderRadius: '50%',
-                background: '#66FCF1',
-                opacity: 0.6
+                background: config.gradient,
+                opacity: 0.8
               }}
             ></div>
           </div>

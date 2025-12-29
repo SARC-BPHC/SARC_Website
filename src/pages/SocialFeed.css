@@ -495,6 +495,19 @@
   }
 }
 
+.social-feed-grid {
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 900px) {
+  .social-feed-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 768px) {
   .social-feed-hero {
     padding: 4rem 0 2rem 0;
