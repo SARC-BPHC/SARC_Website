@@ -111,9 +111,10 @@
 
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 4vw, 3rem);
   margin-bottom: 3rem;
+  align-items: start;
 }
 
 .blog-card {
@@ -247,8 +248,8 @@
   }
   
   .blog-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.75rem, 3vw, 2rem);
   }
   
   .echo-title {
@@ -265,5 +266,29 @@
   
   .section-title {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-grid {
+    gap: clamp(0.5rem, 2vw, 1rem);
+  }
+  
+  .blog-image {
+    height: 120px;
+  }
+  
+  .blog-content {
+    padding: 1rem;
+  }
+  
+  .blog-title {
+    font-size: 1.1rem;
+    line-height: 1.2;
+  }
+  
+  .blog-description {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 2;
   }
 }

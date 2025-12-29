@@ -4,7 +4,7 @@ const blogPosts = [
     slug: 'bits-merc-benz',
     title: 'From BITS Pilani to Mercedes-Benz: A Journey of Passion, Design, and Innovation',
     description: 'Mr. Siddhant S., an alumnus of BITS Pilani (Hyderabad, ‘23) with a degree in Mechanical Engineering, is currently serving as a Product Design Engineer at AMG, Mercedes-Benz R&D. He is a passionate and innovative engineer specialized in automotive design, 3D printing, and high-performance vehicle development. With a strong foundation in mechanical systems and cutting-edge prototyping, he has played a crucial role in designing and refining components for luxury and performance vehicles. His ability to combine technical expertise with creativity allows him to push the boundaries of engineering excellence. Siddhant’s academic journey and professional experiences have shaped his problem-solving approach, making him a valuable asset in the automotive industry.',
-    image: '/public/BlogImgs/SiddhantS.png',
+    image: '/BlogImgs/SiddhantS.png',
     content: {
       qa: [
         {
@@ -31,7 +31,7 @@ const blogPosts = [
     slug: 'bits-glob-impact',
     title: 'Trailblazing Success: Sudarshan Ravichandran\'s Journey from BITS Pilani to Global Impact',
     description: 'Sudarshan Ravichandran, an alumnus of BITS Pilani (Hyderabad, \'14), where he completed a dual degree in B.E. Mechanical Engineering and M.Sc. Physics. He began his professional journey with Mercedes-Benz R&D, pursued an MBA in Supply Chain Management from SPJIMR, Mumbai, and is now a Senior Manager at Amazon\'s Beauty Section.',
-    image: '/src/BlogImgs/SudarshanR.png',
+    image: '/BlogImgs/SudarshanR.png',
     content: {
       qa: [
         {
