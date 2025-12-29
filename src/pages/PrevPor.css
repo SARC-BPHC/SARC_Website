@@ -1,6 +1,9 @@
 .prev-por-page {
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
 }
 
 .prev-por-hero {
@@ -53,6 +56,10 @@
 .batch-section {
   background: #f8f9fa;
   padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-height: 60vh;
 }
 
 .container {
