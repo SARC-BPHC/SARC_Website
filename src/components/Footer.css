@@ -154,18 +154,36 @@
   transform: scale(1);
   transition-delay: 0.25s;
 }
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 .footer-main {
   background: #19212B;
   color: #e0e0f0;
   padding: 2rem 0 0 0;
   font-family: 'Montserrat', sans-serif;
   border-top: 1px solid #232A36;
-  margin-top: 0;
+  margin: 0;
   width: 100vw;
   left: 0;
   right: 0;
   position: relative;
   box-sizing: border-box;
+  min-height: fit-content;
 }
 .footer-inner {
   max-width: 1200px;
@@ -229,7 +247,8 @@
   text-align: center;
   color: #b0b0c0;
   font-size: 1rem;
-  padding: 1rem 0;
+  padding: 1rem 0 0 0;
+  margin: 0;
   letter-spacing: 0.01em;
 }
 
