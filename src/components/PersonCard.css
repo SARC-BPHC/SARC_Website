@@ -144,4 +144,169 @@
   height: 22px;
 }
 
+.desktop-card {
+  display: flex;
+}
+
+.mobile-card {
+  display: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 480px) {
+  .desktop-card {
+    display: none;
+  }
+  
+  .mobile-card {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .person-card-outer {
+    max-width: 100%;
+    padding: 10px 6px;
+  }
+  
+  .person-card {
+    height: 180px;
+    min-height: 180px;
+  }
+  
+  .person-image {
+    width: 110px;
+  }
+  
+  .person-info {
+    padding: 0 10px;
+    gap: 4px;
+  }
+  
+  .person-designation {
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+  }
+  
+  .person-name {
+    font-size: 1.2rem;
+  }
+  
+  .firstname, .lastname {
+    font-size: 1.2rem;
+  }
+  
+  .person-year {
+    font-size: 0.75rem;
+  }
+  
+  .linkedin-icon-btn {
+    width: 32px;
+    height: 32px;
+    margin-top: 6px;
+  }
+  
+  .linkedin-logo {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .person-card-outer {
+    padding: 8px 4px;
+  }
+  
+  .person-card {
+    height: 140px;
+    min-height: 140px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .person-image {
+    display: none;
+  }
+  
+  .person-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    gap: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .person-designation {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+  
+  .person-name {
+    font-size: 1.3rem;
+    margin: 4px 0;
+  }
+  
+  .firstname, .lastname {
+    font-size: 1.3rem;
+  }
+  
+  .person-year {
+    font-size: 0.85rem;
+  }
+  
+  .linkedin-icon-btn {
+    width: 32px;
+    height: 32px;
+    margin-top: 8px;
+  }
+  
+  .linkedin-logo {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .person-card {
+    height: 120px;
+    min-height: 120px;
+  }
+  
+  .person-info {
+    padding: 12px;
+    gap: 6px;
+  }
+  
+  .person-name {
+    font-size: 1.1rem;
+  }
+  
+  .firstname, .lastname {
+    font-size: 1.1rem;
+  }
+  
+  .person-designation {
+    font-size: 0.65rem;
+  }
+  
+  .person-year {
+    font-size: 0.75rem;
+  }
+  
+  .linkedin-icon-btn {
+    width: 28px;
+    height: 28px;
+    margin-top: 6px;
+  }
+  
+  .linkedin-logo {
+    width: 16px;
+    height: 16px;
+  }
+}
 

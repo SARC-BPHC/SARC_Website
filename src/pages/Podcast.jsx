@@ -132,7 +132,7 @@ function FeaturedEpisodes() {
       company: "Nurture Fields",
       duration: "47 min", 
       embedId: "3vjCCcG3SrVGtpbPmSmhFg",
-      description: "Gather insights from the journey of Keerthi Priya in making of \"Nurture Fields\" and \"koh! foods\" from scratch and her experiences in making of natural products with the catch of technology",
+      description: "Gather insights from the journey of Keerthi Priya in making of \"Nurture Fields\" and \"koh! foods\" from scratch and her experiences in making of natural products with the catch of technology.",
       tags: ["Product", "Technology"],
       publishDate: "May 2024",
       featured: true

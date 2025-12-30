@@ -232,8 +232,8 @@
 
 @media (max-width: 768px) {
   .carousel-root {
-    min-height: 400px;
-    max-height: 500px;
+    min-height: 60vh;
+    max-height: 70vh;
     padding-top: 64px;
   }
   
@@ -262,6 +262,7 @@
   .carousel-cta-button {
     padding: 0.7rem 1.3rem;
     font-size: 0.85rem;
+    gap: 0.7rem;
   }
   
   .carousel-nav {
@@ -286,8 +287,8 @@
 
 @media (max-width: 480px) {
   .carousel-root {
-    min-height: 350px;
-    max-height: 450px;
+    min-height: 65vh;
+    max-height: 75vh;
   }
   
   .carousel-content-card {
@@ -309,6 +310,7 @@
   .carousel-cta-button {
     padding: 0.6rem 1rem;
     font-size: 0.8rem;
+    gap: 0.8rem;
   }
   
   .carousel-nav {

@@ -57,7 +57,7 @@
 /* Content Section */
 .batch-por-content {
   background: #f8f9fa;
-  padding: 4rem 0;
+  padding: 3rem 0;
 }
 
 .batch-por-container {
@@ -82,7 +82,7 @@
 .por-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.2rem;
+  gap: 1.5rem;
   margin: 0 auto;
 }
 
@@ -100,7 +100,6 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
-  height: 100%;
   min-height: 120px;
 }
 
@@ -251,14 +250,13 @@
   
   .por-grid {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
   .batch-por-hero {
-    padding: 4rem 0 2rem 0;
-    min-height: 50vh;
+    padding: 5rem 0 2rem 0;
   }
   
   .batch-por-hero-content {
@@ -276,7 +274,7 @@
   
   .por-grid {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 0.8rem;
+    gap: 1.2rem;
   }
   
   .batch-por-container {
@@ -284,23 +282,43 @@
   }
   
   .batch-por-content {
-    padding: 3rem 0;
+    padding: 2rem 0;
+  }
+  
+  .designation-group {
+    margin-bottom: 2rem;
+  }
+  
+  .designation-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .batch-por-hero {
-    padding: 3rem 0 1.5rem 0;
+    padding: 4rem 0 2rem 0;
   }
   
   .por-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .designation-group {
+    margin-bottom: 2.5rem;
+  }
+  
+  .designation-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
   }
   
   .por-card {
-    padding: 0.8rem;
-    min-height: 100px;
+    padding: 1rem;
+    min-height: 110px;
+    height: auto;
+    margin-bottom: 0.5rem;
   }
   
   .por-name {
