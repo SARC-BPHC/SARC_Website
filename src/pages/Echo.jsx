@@ -1,18 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useStaggeredIntersection } from '../hooks/useIntersectionObserver';
+import { motion } from 'framer-motion';
 import blogPosts from './data/blogPosts';
 import './Echo.css';
 
 const Echo = () => {
-  const [visibleItems, triggerAnimation] = useStaggeredIntersection(blogPosts.length, 100);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      triggerAnimation();
-    }, 200);
-    return () => clearTimeout(timer);
-  }, [triggerAnimation]);
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8, y: 20 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  };
 
 
   return (
@@ -41,12 +53,17 @@ const Echo = () => {
 
       <div className="echo-content">
         <div className="echo-container">
-          <div className="blog-grid">
+          <motion.div 
+            className="blog-grid"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
             {blogPosts.map((post, idx) => (
-              <article
+              <motion.article
                 key={post.id}
-                className={`blog-card scale-in ${visibleItems.has(idx) ? 'animate' : ''}`}
-                style={{ transitionDelay: `${idx * 100}ms` }}
+                className="blog-card"
+                variants={itemVariants}
               >
                 <Link to={`/echo/${post.slug}`} className="blog-card-link">
                   <div className="blog-image">
@@ -63,9 +80,9 @@ const Echo = () => {
                     
                   </div>
                 </Link>
-              </article>
+              </motion.article>
             ))}
-          </div>
+          </motion.div>
 
           {blogPosts.length === 0 && (
             <div className="empty-state">

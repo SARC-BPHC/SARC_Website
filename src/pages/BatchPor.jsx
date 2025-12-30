@@ -43,7 +43,6 @@ function BatchPor() {
   const { year } = useParams();
   const pors = porData[year] || [];
 
-  // Group PORs by designation
   const groupedPors = pors.reduce((acc, por) => {
     const designation = por.post;
     if (!acc[designation]) {

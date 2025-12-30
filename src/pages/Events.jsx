@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Events.css';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 import alumniMeetImg from '../assets/Reunions.png';
 import wilpImg from '../assets/WILPs.png';

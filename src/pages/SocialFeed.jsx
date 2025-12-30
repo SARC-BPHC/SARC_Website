@@ -89,7 +89,6 @@ export default function SocialFeed() {
 
       <div style={{ background: '#f8f9fa', padding: '4rem 0' }} className="px-6">
         {isMobile ? (
-          // Mobile: Single swipeable carousel
           <div className="max-w-lg mx-auto">
             <EmblaCarousel>
               {combinedPosts.map((post, index) => (

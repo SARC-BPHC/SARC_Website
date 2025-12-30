@@ -1,10 +1,8 @@
-/* BatchPor Page Styles */
 .batch-por-page {
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
 }
 
-/* Hero Section */
 .batch-por-hero {
   padding: 6rem 0 3rem 0;
   background: linear-gradient(135deg, #202833 0%, #2a3441 50%, #1a222e 100%);
@@ -54,7 +52,6 @@
 }
 
 
-/* Content Section */
 .batch-por-content {
   background: #f8f9fa;
   padding: 3rem 0;
@@ -86,7 +83,6 @@
   margin: 0 auto;
 }
 
-/* Modern Card Design */
 .por-card {
   background: #2a3441;
   border-radius: 12px;
@@ -208,7 +204,6 @@
   transform: translateX(3px) translateY(-3px);
 }
 
-/* Animation Classes */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -242,7 +237,6 @@
   transform: scale(1) translateY(0);
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
   .batch-por-hero {
     padding: 5rem 0 3rem 0;

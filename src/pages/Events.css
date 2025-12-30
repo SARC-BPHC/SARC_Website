@@ -199,16 +199,16 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: rgba(102, 252, 241, 0.8);
-  color: #1a2332;
+  background: transparent;
+  color: #ffffff;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   cursor: pointer;
   z-index: 10;
@@ -216,8 +216,11 @@
 }
 
 .event-dialog-close:hover {
-  background: #66FCF1;
+  background: transparent;
+  color: #ffffff;
   transform: scale(1.1);
+  outline: none;
+  border: none;
 }
 
 .event-dialog-content {
@@ -271,7 +274,6 @@
   white-space: pre-line;
 }
 
-/* Responsive Styles */
 @media (max-width: 900px) {
   .events-hero {
     padding: 5rem 0 2rem 0;
@@ -374,9 +376,9 @@
   }
   
   .event-dialog-close {
-    width: 36px;
-    height: 36px;
-    font-size: 1.3rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.6rem;
   }
   
   .event-dialog-backdrop {

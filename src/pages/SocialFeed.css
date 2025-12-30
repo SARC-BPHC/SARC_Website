@@ -181,18 +181,15 @@
   font-size: 1.5rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all var(--animation-speed-fast) var(--animation-easing-smooth);
   display: flex;
   align-items: center;
   justify-content: center;
-  will-change: transform, background, border-color;
 }
 
 .carousel-btn:hover {
   background: #66FCF1;
   border-color: #66FCF1;
   color: white;
-  transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(102, 252, 241, 0.3);
 }
 
@@ -256,8 +253,6 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  transition: all var(--animation-speed-normal) var(--animation-easing-smooth);
-  will-change: transform, opacity;
 }
 
 .embed-card {
@@ -374,19 +369,15 @@
   background: rgba(102, 252, 241, 0.3);
   border: none;
   cursor: pointer;
-  transition: all var(--animation-speed-fast) var(--animation-easing-smooth);
-  will-change: background, transform;
 }
 
 .indicator.active {
   background: #66FCF1;
-  transform: scale(1.2);
   box-shadow: 0 0 10px rgba(102, 252, 241, 0.4);
 }
 
 .indicator:hover {
   background: #66FCF1;
-  transform: scale(1.1);
 }
 
 .social-stats {
@@ -452,8 +443,6 @@
   text-decoration: none;
   font-weight: 700;
   font-size: 1rem;
-  transition: all var(--animation-speed-fast) var(--animation-easing-smooth);
-  will-change: transform, box-shadow;
 }
 
 .social-link.linkedin {
@@ -469,7 +458,6 @@
 }
 
 .social-link:hover {
-  transform: translateY(-2px);
 }
 
 .social-link.linkedin:hover {
@@ -496,7 +484,6 @@
 }
 
 .social-feed-grid {
-  transition: all 0.3s ease;
 }
 
 @media (max-width: 900px) {

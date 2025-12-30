@@ -141,7 +141,6 @@
   to { opacity: 1; transform: translateY(0);}
 }
 
-/* Mobile Menu Styles */
 .desktop-only {
   display: flex;
 }
@@ -329,7 +328,6 @@
   background: rgba(102, 252, 241, 0.1);
 }
 
-/* Mobile Menu Visibility */
 @media (max-width: 768px) {
   .desktop-only {
     display: none;
@@ -340,7 +338,6 @@
   }
 }
 
-/* Responsive: Tablets */
 @media (max-width: 900px) {
   .navbar {
     height: 52px;
@@ -358,7 +355,6 @@
   }
 }
 
-/* Responsive: Mobiles */
 @media (max-width: 600px) {
   .navbar {
     height: 44px;
@@ -382,7 +378,6 @@
   }
 }
 
-/* Prevent overflow on small screens */
 .navbar-logo,
 .navbar-links {
   min-width: 0;

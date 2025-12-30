@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import podcastImg from '../assets/Podcast.png';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import './Podcast.css';
 
 function PodcastHero() {
@@ -101,7 +101,25 @@ function PodcastHero() {
 }
 
 function FeaturedEpisodes() {
-  const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.2 });
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  };
 
   const episodes = [
     {
@@ -140,17 +158,29 @@ function FeaturedEpisodes() {
   ];
 
   return (
-    <section className="featured-episodes" ref={ref}>
+    <motion.section 
+      className="featured-episodes"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
       <div className="container">
-        <h2 className={`section-title fade-in ${isIntersecting ? 'animate' : ''}`}>
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           Featured Episodes
-        </h2>
-        <div className="episodes-grid">
+        </motion.h2>
+        <motion.div className="episodes-grid" variants={containerVariants}>
           {episodes.map((episode, index) => (
-            <div 
+            <motion.div 
               key={index}
-              className={`episode-card intersection-observer ${isIntersecting ? 'in-view' : ''} ${episode.featured ? 'featured' : ''} hover-lift`}
-              style={{ transitionDelay: `${index * 200}ms` }}
+              className={`episode-card ${episode.featured ? 'featured' : ''} hover-lift`}
+              variants={itemVariants}
             >
               <div className="episode-header">
                 <div className="episode-meta">
@@ -195,24 +225,40 @@ function FeaturedEpisodes() {
                   <span>↗</span>
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
 function PodcastEmbed() {
-  const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.3 });
-
   return (
-    <section className="podcast-embed" ref={ref}>
+    <motion.section 
+      className="podcast-embed"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="container">
-        <h2 className={`section-title fade-in ${isIntersecting ? 'animate' : ''}`}>
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           Latest Episode
-        </h2>
-        <div className={`embed-container scale-in ${isIntersecting ? 'animate' : ''}`}>
+        </motion.h2>
+        <motion.div 
+          className="embed-container"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <iframe
             className="spotify-embed"
             src="https://open.spotify.com/embed/episode/6BHvqE9er6fxoiwpJKah85?utm_source=generator"
@@ -223,9 +269,9 @@ function PodcastEmbed() {
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           />
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
