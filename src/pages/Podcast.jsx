@@ -52,7 +52,7 @@ function PodcastHero() {
           </p>
           <div className="podcast-stats fade-in animate">
             <div className="stat-item">
-              <span className="stat-number">15+</span>
+              <span className="stat-number">10+</span>
               <span className="stat-label">Episodes</span>
             </div>
             <div className="stat-item">
