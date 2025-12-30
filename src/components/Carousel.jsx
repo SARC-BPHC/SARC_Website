@@ -100,7 +100,7 @@ function Carousel() {
     } else if (current === 2) {
       navigate('/events');
     } else if (current === 3) {
-      window.open('https://open.spotify.com/show/22sn2XUuxN5y5gVt7BitDi');
+      navigate('/podcast');
     }
   };
 

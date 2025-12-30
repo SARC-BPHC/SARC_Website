@@ -37,7 +37,6 @@ function PodcastHero() {
       <div className="podcast-hero-content">
         <div className="podcast-hero-text fade-in animate">
           <div className="podcast-badge scale-in animate">
-            <span className="podcast-icon">🎙️</span>
             <span>Official SARC Podcast</span>
           </div>
           <h1 className="podcast-title text-reveal animate">
