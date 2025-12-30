@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedButton from './AnimatedButton';
 import './Carousel.css';
 
@@ -15,14 +16,13 @@ const slides = [
     image: img1,
     pretext: "We Are",
     text: "We are SARC",
-    subtext: "We at SARC connects alumni with current students to foster mentorship, networking, and collaboration. We bridge generations of BITSians through initiatives that share knowledge and experiences. SARC aims to strengthen the BITSian legacy and support student growth through active alumni engagement.",
-    button: "Light"
+    subtext: "We at SARC connects alumni with current students to foster mentorship, networking, and collaboration. We bridge generations of BITSians through initiatives that share knowledge and experiences. SARC aims to strengthen the BITSian legacy and support student growth through active alumni engagement."
   },
   {
     image: img2,
     pretext: "Our Voice",
     text: "ECHO",
-    subtext: "BITS Pilani’s official monthly alumni newsletter, BITS ECHO connects the global BITSian community through campus stories, updates, and milestones.It commemorates success and builds lasting bonds among alumni, students, and faculty.",
+    subtext: "BITS Pilani's official monthly alumni newsletter, BITS ECHO connects the global BITSian community through campus stories, updates, and milestones.It commemorates success and builds lasting bonds among alumni, students, and faculty.",
     button: "READ NOW"
   },
   {
@@ -43,30 +43,12 @@ const slides = [
 
 function Carousel() {
   const [current, setCurrent] = useState(0);
-  const [show, setShow] = useState(false);
   const [animationKey, setAnimationKey] = useState(0);
-
   const navigate = useNavigate();
 
-  const FADE_DELAY = 100; // ms
-
-  const timeouts = useRef([]);
   const autoAdvanceRef = useRef();
   const lastInteraction = useRef(Date.now());
 
-  useEffect(() => {
-    setShow(false);
-
-    timeouts.current.forEach(clearTimeout);
-    timeouts.current = [];
-
-    timeouts.current.push(setTimeout(() => setShow(true), FADE_DELAY));
-
-    return () => {
-      timeouts.current.forEach(clearTimeout);
-      timeouts.current = [];
-    };
-  }, [current, animationKey]);
 
   useEffect(() => {
     if (autoAdvanceRef.current) clearTimeout(autoAdvanceRef.current);
@@ -95,7 +77,12 @@ function Carousel() {
 
   const handleButtonClick = () => {
     lastInteraction.current = Date.now();
-    if (current === 1) {
+    if (current === 0) {
+      const footer = document.getElementById('footer');
+      if (footer) {
+        footer.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (current === 1) {
       navigate('/echo');
     } else if (current === 2) {
       navigate('/events');
@@ -104,46 +91,105 @@ function Carousel() {
     }
   };
 
+  const imageVariants = {
+    enter: { opacity: 0, scale: 1.02 },
+    center: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.98 }
+  };
+
+  const contentVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  };
+
   return (
     <div className="carousel-root">
-      <img
-        loading="lazy"
-        src={slides[current].image}
-        alt={`Slide ${current + 1}`}
-        className="carousel-image"
-      />
+      <AnimatePresence>
+        <motion.img
+          key={current}
+          loading="lazy"
+          src={slides[current].image}
+          alt={`Slide ${current + 1}`}
+          className="carousel-image"
+          variants={imageVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{ 
+            duration: 0.5,
+            ease: "easeInOut"
+          }}
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+        />
+      </AnimatePresence>
+      
       <div className="carousel-overlay">
         <div className="carousel-overlay-gradient"></div>
         <div className="carousel-content-wrapper">
-          <div className="carousel-content-card" key={animationKey}>
-            
-            <h1 className={`carousel-title${show ? ' show' : ''}`}>
+          <motion.div 
+            className="carousel-content-card" 
+            key={animationKey}
+            variants={contentVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.h1 
+              className="carousel-title"
+              variants={itemVariants}
+            >
               {slides[current].text}
-            </h1>
+            </motion.h1>
             
-            <p className={`carousel-description${show ? ' show' : ''}`}>
+            <motion.p 
+              className="carousel-description"
+              variants={itemVariants}
+            >
               {slides[current].subtext}
-            </p>
+            </motion.p>
             
-            {current !== 0 && (
-              <div className="carousel-action-section">
+            {slides[current].button && (
+              <motion.div 
+                className="carousel-action-section"
+                variants={itemVariants}
+              >
                 <AnimatedButton
-                  className={`carousel-cta-animated${show ? ' show' : ''}`}
+                  className="carousel-cta-animated"
                   onClick={handleButtonClick}
-                  disabled={!show}
                 >
                   {slides[current].button}
                 </AnimatedButton>
-              </div>
+              </motion.div>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      <button
+      <motion.button
         onClick={goToPrev}
         className="carousel-nav carousel-nav-left"
         aria-label="Previous"
+        whileHover={{ scale: 1.1, x: -5 }}
+        whileTap={{ scale: 0.9 }}
+        transition={{ duration: 0.2, type: "spring", stiffness: 300 }}
       >
         <img
           loading = "lazy"
@@ -151,12 +197,15 @@ function Carousel() {
           alt="Previous"
           className="carousel-nav-img"
         />
-      </button>
+      </motion.button>
 
-      <button
+      <motion.button
         onClick={goToNext}
         className="carousel-nav carousel-nav-right"
         aria-label="Next"
+        whileHover={{ scale: 1.1, x: 5 }}
+        whileTap={{ scale: 0.9 }}
+        transition={{ duration: 0.2, type: "spring", stiffness: 300 }}
       >
         <img
           loading = "lazy"
@@ -164,7 +213,52 @@ function Carousel() {
           alt="Next"
           className="carousel-nav-img"
         />
-      </button>
+      </motion.button>
+
+      <motion.div 
+        className="carousel-indicators"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.5 }}
+        style={{
+          position: 'absolute',
+          bottom: '2rem',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'flex',
+          gap: '0.5rem',
+          zIndex: 10
+        }}
+      >
+        {slides.map((_, index) => (
+          <motion.button
+            key={index}
+            onClick={() => {
+              lastInteraction.current = Date.now();
+              setCurrent(index);
+              setAnimationKey(prev => prev + 1);
+            }}
+            className="carousel-indicator"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            style={{
+              width: current === index ? '2rem' : '0.5rem',
+              height: '0.5rem',
+              borderRadius: '0.25rem',
+              border: 'none',
+              background: current === index 
+                ? 'linear-gradient(135deg, #66FCF1 0%, #4ecdc4 100%)' 
+                : 'rgba(255, 255, 255, 0.4)',
+              cursor: 'pointer',
+              transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+              boxShadow: current === index 
+                ? '0 4px 12px rgba(102, 252, 241, 0.4)' 
+                : 'none'
+            }}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </motion.div>
     </div>
   );
 }

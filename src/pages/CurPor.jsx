@@ -1,6 +1,5 @@
-import React from "react";
+import { motion } from "framer-motion";
 import PersonCard from "../components/PersonCard";
-import { useStaggeredIntersection } from "../hooks/useIntersectionObserver";
 import "./CurPor.css";
 
 import ShreyaS from "../PORsImgs/Sakshi.png";
@@ -98,38 +97,58 @@ const peopleData = [
 ];
 
 const CurPor = () => {
-  const [visibleItems, triggerAnimation] = useStaggeredIntersection(peopleData.length, 100);
+  const titleVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  };
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      triggerAnimation();
-    }, 200);
-    return () => clearTimeout(timer);
-  }, [triggerAnimation]);
+  const subtitleVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  };
 
   return (
     <div className="curpor-page">
       <div className="curpor-hero">
         <div className="curpor-hero-content">
-          <h1 className="curpor-title fade-in animate">Leadership Team</h1>
-          <p className="curpor-subtitle fade-in animate">
+          <motion.h1 
+            className="curpor-title"
+            variants={titleVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            Leadership Team
+          </motion.h1>
+          <motion.p 
+            className="curpor-subtitle"
+            variants={subtitleVariants}
+            initial="hidden"
+            animate="visible"
+          >
             Meet the dedicated team driving SARC BPHC forward
-          </p>
+          </motion.p>
         </div>
       </div>
 
       <div className="people-section">
-        <div className="people-grid">
+        <motion.div 
+          className="people-grid"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.8 }}
+        >
           {peopleData.map((person, idx) => (
-            <div
-              key={idx}
-              className={`person-item scale-in ${visibleItems.has(idx) ? 'animate' : ''}`}
-              style={{ transitionDelay: `${idx * 100}ms` }}
-            >
-              <PersonCard person={person} />
-            </div>
+            <PersonCard key={idx} person={person} index={idx} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

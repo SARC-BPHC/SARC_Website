@@ -92,11 +92,12 @@ export default function SocialFeed() {
           // Mobile: Single swipeable carousel
           <div className="max-w-lg mx-auto">
             <EmblaCarousel>
-              {combinedPosts.map((post) => (
+              {combinedPosts.map((post, index) => (
                 <SocialPostCard
                   key={`${post.platform}-${post.id}`}
                   post={post}
                   platform={post.platform}
+                  index={index}
                 />
               ))}
             </EmblaCarousel>
@@ -122,6 +123,7 @@ export default function SocialFeed() {
                   <SocialPostCard
                     post={post}
                     platform={post.platform}
+                    index={index}
                   />
                 </div>
               ))}

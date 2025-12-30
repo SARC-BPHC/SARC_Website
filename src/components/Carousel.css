@@ -69,33 +69,15 @@
   pointer-events: auto;
 }
 
-.carousel-title,
-.carousel-description,
-.carousel-cta-button,
-.carousel-cta-animated {
+.carousel-cta-button {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.carousel-title.show,
-.carousel-description.show,
-.carousel-cta-button.show,
-.carousel-cta-animated.show {
+.carousel-cta-button.show {
   opacity: 1;
   transform: translateY(0);
-}
-
-.carousel-title.show {
-  transition-delay: 0.1s;
-}
-
-.carousel-description.show {
-  transition-delay: 0.2s;
-}
-
-.carousel-cta-button.show,
-.carousel-cta-animated.show {
   transition-delay: 0.3s;
 }
 

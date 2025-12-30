@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import './Events.css';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
@@ -49,63 +50,211 @@ const events = [
 ];
 
 function EventCard({ event, onClick, index }) {
-  const [ref, isIntersecting] = useIntersectionObserver({
-    threshold: 0.2,
-    rootMargin: '-50px 0px'
-  });
   const [isHovered, setIsHovered] = useState(false);
 
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 60,
+      scale: 0.8,
+      rotateX: -15
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1,
+      rotateX: 0,
+      transition: {
+        duration: 0.8,
+        delay: index * 0.2,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        type: "spring",
+        stiffness: 100
+      }
+    }
+  };
+
+  const hoverVariants = {
+    hover: {
+      y: -10,
+      scale: 1.05,
+      rotateX: 5,
+      transition: {
+        duration: 0.3,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    },
+    tap: {
+      scale: 0.95,
+      transition: {
+        duration: 0.1
+      }
+    }
+  };
+
+  const imageVariants = {
+    hover: {
+      scale: 1.1,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const overlayVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.3,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
   return (
-    <div 
-      ref={ref}
-      className={`event-card intersection-observer ${isIntersecting ? 'in-view' : ''} scale-in ${isIntersecting ? 'animate' : ''}`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+    <motion.div 
+      className="event-card"
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      whileHover="hover"
+      whileTap="tap"
       onClick={() => onClick(event)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      style={{
+        transformStyle: "preserve-3d",
+        perspective: "1000px"
+      }}
+      {...hoverVariants}
     >
       <div className="event-card-image-container">
-        <img
+        <motion.img
           loading="lazy"
           src={event.image}
           alt={event.title}
           className="event-card-image"
+          variants={imageVariants}
+          whileHover="hover"
         />
-        <div className={`event-card-overlay ${isHovered ? 'visible' : ''}`}>
-          <div className="event-card-content">
-            <h3 className="event-card-title">{event.title}</h3>
-            <p className="event-card-subtitle">Click to learn more</p>
-          </div>
-        </div>
+        <AnimatePresence>
+          {isHovered && (
+            <motion.div 
+              className="event-card-overlay visible"
+              variants={overlayVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
+              <motion.div 
+                className="event-card-content"
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.1, duration: 0.2 }}
+              >
+                <h3 className="event-card-title">{event.title}</h3>
+                <p className="event-card-subtitle">Click to learn more</p>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 function EventDialog({ event, isOpen, onClose }) {
-  if (!isOpen || !event) return null;
+  const backdropVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { duration: 0.3 }
+    }
+  };
+
+  const dialogVariants = {
+    hidden: { 
+      scale: 0.8, 
+      opacity: 0,
+      y: 50
+    },
+    visible: { 
+      scale: 1, 
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const contentVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.3 }
+    }
+  };
 
   return (
-    <div className={`event-dialog-backdrop ${isOpen ? 'open' : ''}`} onClick={onClose}>
-      <div className={`event-dialog ${isOpen ? 'open' : ''}`} onClick={(e) => e.stopPropagation()}>
-        <button className="event-dialog-close" onClick={onClose}>
-          ×
-        </button>
-        <div className="event-dialog-content">
-          <div className="event-dialog-image-container">
-            <img
-              src={event.image}
-              alt={event.title}
-              className="event-dialog-image"
-            />
-          </div>
-          <div className="event-dialog-text">
-            <h2 className="event-dialog-title">{event.title}</h2>
-            <p className="event-dialog-description">{event.description}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <AnimatePresence>
+      {isOpen && event && (
+        <motion.div 
+          className="event-dialog-backdrop open" 
+          onClick={onClose}
+          variants={backdropVariants}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+        >
+          <motion.div 
+            className="event-dialog open" 
+            onClick={(e) => e.stopPropagation()}
+            variants={dialogVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+          >
+            <motion.button 
+              className="event-dialog-close" 
+              onClick={onClose}
+              whileHover={{ scale: 1.1, rotate: 90 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ duration: 0.2 }}
+            >
+              ×
+            </motion.button>
+            <div className="event-dialog-content">
+              <motion.div 
+                className="event-dialog-image-container"
+                variants={contentVariants}
+              >
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="event-dialog-image"
+                />
+              </motion.div>
+              <motion.div 
+                className="event-dialog-text"
+                variants={contentVariants}
+              >
+                <h2 className="event-dialog-title">{event.title}</h2>
+                <p className="event-dialog-description">{event.description}</p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
 
@@ -142,19 +291,86 @@ function EventsPage() {
     setTimeout(() => setSelectedEvent(null), 300);
   };
 
+  const heroVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.3,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const subtitleVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const gridVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.2,
+        delayChildren: 0.8
+      }
+    }
+  };
+
   return (
     <div className="events-page">
-      <div className="events-hero">
+      <motion.div 
+        className="events-hero"
+        variants={heroVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <div className="events-hero-content">
-          <h1 className="events-title fade-in animate">Events</h1>
-          <p className="events-subtitle fade-in animate">
+          <motion.h1 
+            className="events-title"
+            variants={titleVariants}
+          >
+            Events
+          </motion.h1>
+          <motion.p 
+            className="events-subtitle"
+            variants={subtitleVariants}
+          >
             Discover the memorable moments that bring our community together
-          </p>
+          </motion.p>
         </div>
-      </div>
+      </motion.div>
 
       <div className="events-section">
-        <div className="events-grid">
+        <motion.div 
+          className="events-grid"
+          variants={gridVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {events.map((event, index) => (
             <EventCard
               key={event.title}
@@ -163,7 +379,7 @@ function EventsPage() {
               onClick={handleEventClick}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
       
       <EventDialog

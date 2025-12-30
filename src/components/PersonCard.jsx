@@ -1,23 +1,106 @@
 import React from "react";
+import { motion } from "framer-motion";
 import "./PersonCard.css";
 
-const PersonCard = ({ person }) => (
+const PersonCard = ({ person, index = 0 }) => {
+  const hoverVariants = {
+    hover: {
+      scale: 1.02,
+      y: -4,
+      transition: {
+        duration: 0.2,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    },
+    tap: {
+      scale: 0.98,
+      transition: {
+        duration: 0.1,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const linkedinVariants = {
+    hover: {
+      scale: 1.1,
+      y: -2,
+      transition: {
+        duration: 0.2,
+        type: "spring",
+        stiffness: 400,
+        damping: 10
+      }
+    },
+    tap: {
+      scale: 0.95,
+      transition: {
+        duration: 0.1
+      }
+    }
+  };
+
+  return (
     <>
-      <div className="person-card hover-lift desktop-card">
-        <img loading="lazy" src={person.image} alt={`${person.firstname} ${person.lastname}`} className="person-image" />
+      <motion.div 
+        className="person-card desktop-card"
+        initial={{ opacity: 0, y: 30, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ 
+          duration: 0.4,
+          delay: 0.8 + (index * 0.1),
+          ease: [0.25, 0.46, 0.45, 0.94]
+        }}
+        whileHover="hover"
+        whileTap="tap"
+        variants={hoverVariants}
+      >
+        <motion.img 
+          loading="lazy" 
+          src={person.image} 
+          alt={`${person.firstname} ${person.lastname}`} 
+          className="person-image"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+        />
         <div className="person-info">
-          <div className="person-designation">{person.designation}</div>
-          <div className="person-name">
+          <motion.div 
+            className="person-designation"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 + (index * 0.1) + 0.2, duration: 0.3 }}
+          >
+            {person.designation}
+          </motion.div>
+          <motion.div 
+            className="person-name"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 + (index * 0.1) + 0.3, duration: 0.3 }}
+          >
             <span className="firstname">{person.firstname}</span>
             <span className="lastname">{person.lastname}</span>
-          </div>
-          <div className="person-year">{person.year}</div>
-          <a
+          </motion.div>
+          <motion.div 
+            className="person-year"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 + (index * 0.1) + 0.4, duration: 0.3 }}
+          >
+            {person.year}
+          </motion.div>
+          <motion.a
             href={person.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="linkedin-icon-btn hover-scale pulse-glow"
+            className="linkedin-icon-btn"
             aria-label="LinkedIn"
+            variants={linkedinVariants}
+            whileHover="hover"
+            whileTap="tap"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8 + (index * 0.1) + 0.5, duration: 0.3, type: "spring", stiffness: 200 }}
           >
             <svg
               width="22"
@@ -33,28 +116,65 @@ const PersonCard = ({ person }) => (
                 fill="black"
               />
             </svg>
-          </a>
+          </motion.a>
         </div>
-      </div>
+      </motion.div>
 
-      <a
+      <motion.a
         href={person.linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        className="person-card mobile-card hover-lift"
+        className="person-card mobile-card"
         aria-label={`View ${person.firstname} ${person.lastname}'s LinkedIn profile`}
+        initial={{ opacity: 0, y: 30, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ 
+          duration: 0.4,
+          delay: 0.8 + (index * 0.1),
+          ease: [0.25, 0.46, 0.45, 0.94]
+        }}
+        whileHover="hover"
+        whileTap="tap"
+        variants={hoverVariants}
       >
-        <img loading="lazy" src={person.image} alt={`${person.firstname} ${person.lastname}`} className="person-image" />
+        <motion.img 
+          loading="lazy" 
+          src={person.image} 
+          alt={`${person.firstname} ${person.lastname}`} 
+          className="person-image"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+        />
         <div className="person-info">
-          <div className="person-designation">{person.designation}</div>
-          <div className="person-name">
+          <motion.div 
+            className="person-designation"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 + (index * 0.1) + 0.2, duration: 0.3 }}
+          >
+            {person.designation}
+          </motion.div>
+          <motion.div 
+            className="person-name"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 + (index * 0.1) + 0.3, duration: 0.3 }}
+          >
             <span className="firstname">{person.firstname}</span>
             <span className="lastname">{person.lastname}</span>
-          </div>
-          <div className="person-year">{person.year}</div>
+          </motion.div>
+          <motion.div 
+            className="person-year"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 + (index * 0.1) + 0.4, duration: 0.3 }}
+          >
+            {person.year}
+          </motion.div>
         </div>
-      </a>
+      </motion.a>
     </>
-);
+  );
+};
 
 export default PersonCard;
