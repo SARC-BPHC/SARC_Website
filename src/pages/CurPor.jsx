@@ -5,9 +5,9 @@ import "./CurPor.css";
 import ShreyaS from "../PORsImgs/Sakshi.png";
 import ArnavB from "../PORsImgs/ArnavB.jpg";
 import Rachit from "../PORsImgs/Shourya.png";
-import VedantB from "../PORsImgs/Divya.png";
+import VedantB from "../PORsImgs/VedantB.jpg";
 import Antariksha from "../PORsImgs/Akash.png";
-import AryanD from "../PORsImgs/Vipul.png";
+import AryanD from "../PORsImgs/AryanD.png";
 import AnshitaP from "../PORsImgs/Vedant.png";
 import AreeshaS from "../PORsImgs/SakshiB.png";
 import RibhavT from "../PORsImgs/Romil.png";
@@ -20,7 +20,7 @@ const peopleData = [
     designation: "Coordinator",
     year: "2025-2026",
     image: ArnavB,
-    linkedin: "https://www.linkedin.com/in/likith-salla-413a2b25a/"
+    linkedin: "https://www.linkedin.com/in/arnav-bansal-243161289/"
   },
   {
     firstname: "Shreya",
@@ -28,7 +28,7 @@ const peopleData = [
     designation: "Coordinator",
     year: "2025-2026",
     image: ShreyaS,
-    linkedin: "https://www.linkedin.com/in/sakshi-hingane-494633267"
+    linkedin: "https://www.linkedin.com/in/shreya-singh8297/"
   },
   {
     firstname: "Vedant",
@@ -36,7 +36,7 @@ const peopleData = [
     designation: "Outreach Head",
     year: "2025-2026",
     image: VedantB,
-    linkedin: "https://www.linkedin.com/in/divya-daga-180542258?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    linkedin: "https://www.linkedin.com/in/vedant-barve-16gem0405/"
   },
   {
     firstname: "Antariksha",
@@ -44,7 +44,7 @@ const peopleData = [
     designation: "Events Head",
     year: "2025-2026",
     image: Antariksha,
-    linkedin: "https://www.linkedin.com/in/akash-reddy-sangati-15679a212?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    linkedin: "https://www.linkedin.com/in/antariksha-deb-078176292/"
   },
   {
     firstname: "Rachit",
@@ -52,7 +52,7 @@ const peopleData = [
     designation: "Events Head",
     year: "2025-2026",
     image: Rachit,
-    linkedin: "https://www.linkedin.com/in/shourya-khubber-6b6321265/"
+    linkedin: "https://www.linkedin.com/in/rachhittt/"
   },
   {
     firstname: "Areesha",
@@ -60,7 +60,7 @@ const peopleData = [
     designation: "Content & Social Media Head",
     year: "2025-2026",
     image: AreeshaS,
-    linkedin: "https://www.linkedin.com/in/sakshi-bharadwaj-887749257/"
+    linkedin: "https://www.linkedin.com/in/areesha-shahid-659097230/"
   },
   {
     firstname: "Ribhav",
@@ -68,7 +68,7 @@ const peopleData = [
     designation: "Content & Social Media Head",
     year: "2025-2026",
     image: RibhavT,
-    linkedin: "https://www.linkedin.com/in/romil-goswami-9838aa24b/"
+    linkedin: "https://www.linkedin.com/in/ribhav-tiwari-255458262/"
   },
   {
     firstname: "Ankit",
@@ -76,7 +76,7 @@ const peopleData = [
     designation: "Media & Publicity Head",
     year: "2025-2026",
     image: AnkitM,
-    linkedin: "https://www.linkedin.com/in/vedant-bhatia-/"
+    linkedin: "https://www.linkedin.com/in/itzzankit-akm/"
   },
   {
     firstname: "Anshita",
@@ -84,7 +84,7 @@ const peopleData = [
     designation: "Media & Publicity Head",
     year: "2025-2026",
     image: AnshitaP,
-    linkedin: "https://www.linkedin.com/in/prathamesh-deshmane-667310258/"
+    linkedin: "https://www.linkedin.com/in/anshita-pandey-a989b424b/"
   },
   {
     firstname: "Aryan",
@@ -92,7 +92,7 @@ const peopleData = [
     designation: "Tech Lead",
     year: "2025-2026",
     image: AryanD,
-    linkedin: "https://www.linkedin.com/in/vipul-alampally-971566264/"
+    linkedin: "https://www.linkedin.com/in/aryan-dalmia/"
   }
 ];
 

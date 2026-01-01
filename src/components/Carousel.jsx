@@ -22,7 +22,7 @@ const slides = [
     image: img2,
     pretext: "Our Voice",
     text: "ECHO",
-    subtext: "BITS Pilani's official monthly alumni newsletter, BITS ECHO connects the global BITSian community through campus stories, updates, and milestones.It commemorates success and builds lasting bonds among alumni, students, and faculty.",
+    subtext: "BITS Pilani's official monthly alumni newsletter, BITS ECHO connects the global BITSian community through campus stories, updates, and milestones. It commemorates success and builds lasting bonds among alumni, students, and faculty.",
     button: "READ NOW"
   },
   {
@@ -36,7 +36,7 @@ const slides = [
     image: img4,
     pretext: "Unplugged",
     text: "PODCAST",
-    subtext: "Alumni Unplugged is BITS Pilani's official Spotify podcast where alumni open up about their journeys.They share stories about their careers, challenges, and growth — giving students useful and inspiring insights.",
+    subtext: "Alumni Unplugged is BITS Pilani's official Spotify podcast where alumni open up about their journeys. They share stories about their careers, challenges, and growth, giving students useful and inspiring insights.",
     button: "LISTEN NOW"
   }
 ];
@@ -223,11 +223,15 @@ function Carousel() {
         style={{
           position: 'absolute',
           bottom: '2rem',
-          left: '50%',
-          transform: 'translateX(-50%)',
+          left: '0',
+          right: '0',
           display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           gap: '0.5rem',
-          zIndex: 10
+          zIndex: 10,
+          width: '100%',
+          pointerEvents: 'none'
         }}
       >
         {slides.map((_, index) => (
@@ -246,6 +250,7 @@ function Carousel() {
               height: '0.5rem',
               borderRadius: '0.25rem',
               border: 'none',
+              outline: 'none',
               background: current === index 
                 ? 'linear-gradient(135deg, #66FCF1 0%, #4ecdc4 100%)' 
                 : 'rgba(255, 255, 255, 0.4)',
@@ -253,7 +258,8 @@ function Carousel() {
               transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
               boxShadow: current === index 
                 ? '0 4px 12px rgba(102, 252, 241, 0.4)' 
-                : 'none'
+                : 'none',
+              pointerEvents: 'auto'
             }}
             aria-label={`Go to slide ${index + 1}`}
           />
