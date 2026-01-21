@@ -217,96 +217,103 @@
   .person-card-outer {
     padding: 8px 4px;
   }
-  
+
   .person-card {
-    height: 140px;
-    min-height: 140px;
-    justify-content: center;
+    height: 120px;
+    min-height: 120px;
+    justify-content: flex-start;
     align-items: center;
   }
-  
+
   .person-image {
-    display: none;
+    display: block;
+    width: 90px;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
   }
-  
+
   .person-info {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 16px;
-    gap: 8px;
-    width: 100%;
+    padding: 8px 12px;
+    gap: 4px;
     text-align: center;
+    height: 100%;
   }
-  
+
   .person-designation {
-    font-size: 0.75rem;
-    letter-spacing: 1px;
+    font-size: 0.6rem;
+    letter-spacing: 0.5px;
   }
-  
+
   .person-name {
-    font-size: 1.3rem;
-    margin: 4px 0;
+    font-size: 1rem;
+    margin: 2px 0;
   }
-  
+
   .firstname, .lastname {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
-  
+
   .person-year {
-    font-size: 0.85rem;
+    font-size: 0.7rem;
   }
-  
+
   .linkedin-icon-btn {
-    width: 32px;
-    height: 32px;
-    margin-top: 8px;
+    width: 28px;
+    height: 28px;
+    margin-top: 4px;
   }
-  
+
   .linkedin-logo {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
   }
 }
 
 @media (max-width: 320px) {
   .person-card {
-    height: 120px;
-    min-height: 120px;
+    height: 100px;
+    min-height: 100px;
   }
-  
+
+  .person-image {
+    width: 75px;
+  }
+
   .person-info {
-    padding: 12px;
-    gap: 6px;
+    padding: 6px 8px;
+    gap: 2px;
   }
-  
+
   .person-name {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
-  
+
   .firstname, .lastname {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
-  
+
   .person-designation {
+    font-size: 0.55rem;
+  }
+
+  .person-year {
     font-size: 0.65rem;
   }
-  
-  .person-year {
-    font-size: 0.75rem;
-  }
-  
+
   .linkedin-icon-btn {
-    width: 28px;
-    height: 28px;
-    margin-top: 6px;
+    width: 24px;
+    height: 24px;
+    margin-top: 2px;
   }
-  
+
   .linkedin-logo {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
   }
 }
 

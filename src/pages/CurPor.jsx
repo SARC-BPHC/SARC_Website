@@ -4,12 +4,12 @@ import "./CurPor.css";
 
 import ShreyaS from "../PORsImgs/Sakshi.png";
 import ArnavB from "../PORsImgs/ArnavB.jpg";
-import Rachit from "../PORsImgs/Shourya.png";
+import Rachit from "../PORsImgs/Rachit.png";
 import VedantB from "../PORsImgs/VedantB.jpg";
 import Antariksha from "../PORsImgs/Akash.png";
 import AryanD from "../PORsImgs/AryanD.png";
 import AnshitaP from "../PORsImgs/Vedant.png";
-import AreeshaS from "../PORsImgs/SakshiB.png";
+import AreeshaS from "../PORsImgs/AreeshaS.jpg";
 import RibhavT from "../PORsImgs/Romil.png";
 import AnkitM from "../PORsImgs/Prathemesh.png";
 
