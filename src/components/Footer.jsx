@@ -46,127 +46,46 @@ function Footer() {
     setSending(false);
   };
 
-  const footerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
-  const socialVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { 
-      opacity: 1, 
-      scale: 1,
-      transition: {
-        duration: 0.4,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
-  const linkVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { 
-      opacity: 1, 
-      x: 0,
-      transition: {
-        duration: 0.4,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
-
   return (
     <>
-      <motion.footer 
-        id="footer" 
+      <footer
+        id="footer"
         className="footer-main"
-        variants={footerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
       >
         <div className="footer-inner">
-          <motion.div variants={sectionVariants}>
-            <motion.div 
-              className="footer-section-title"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true }}
-            >
+          <div>
+            <div className="footer-section-title">
               SARC BPHC
-            </motion.div>
-            <motion.div 
-              className="footer-brand-subtitle"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
+            </div>
+            <div className="footer-brand-subtitle">
               Student Alumni Relations Cell<br />
               BITS Pilani, Hyderabad Campus
-            </motion.div>
-          </motion.div>
-
-          <motion.div variants={sectionVariants}>
-            <motion.div 
-              className="footer-section-title"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true }}
-            >
-              Useful Links
-            </motion.div>
-            <div className="footer-section-links">
-              <motion.div variants={linkVariants}>
-                <Link to="/home" className="footer-link">Home</Link>
-              </motion.div>
-              <motion.div variants={linkVariants}>
-                <Link to="/events" className="footer-link">Events</Link>
-              </motion.div>
-              <motion.div variants={linkVariants}>
-                <Link to="/podcast" className="footer-link">Alumni Unplugged</Link>
-              </motion.div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div variants={sectionVariants}>
-            <motion.div 
-              className="footer-section-title"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true }}
-            >
+          <div>
+            <div className="footer-section-title">
+              Useful Links
+            </div>
+            <div className="footer-section-links">
+              <div>
+                <Link to="/home" className="footer-link">Home</Link>
+              </div>
+              <div>
+                <Link to="/events" className="footer-link">Events</Link>
+              </div>
+              <div>
+                <Link to="/podcast" className="footer-link">Alumni Unplugged</Link>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="footer-section-title">
               Contacts
-            </motion.div>
-            <motion.div 
+            </div>
+            <div
               style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', marginBottom: '0.5rem' }}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              viewport={{ once: true }}
             >
               <span style={{ marginTop: '2px' }}>
                 <svg width="18" height="18" fill="#d1cfff" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" /></svg>
@@ -181,13 +100,9 @@ function Footer() {
                   Hyderabad, Telangana 500078, IN
                 </span>
               </a>
-            </motion.div>
-            <motion.div 
+            </div>
+            <div
               style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              viewport={{ once: true }}
             >
               <span style={{ display: 'flex', alignItems: 'center' }}>
                 <svg width="18" height="18" fill="#d1cfff" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#d1cfff" strokeWidth="2" fill="none"/><polyline points="22,6 12,13 2,6" stroke="#d1cfff" strokeWidth="2" fill="none"/></svg>
@@ -197,26 +112,19 @@ function Footer() {
                   sarc@hyderabad.bits-pilani.ac.in
                 </span>
               </a>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          <motion.div variants={sectionVariants}>
-            <motion.div 
-              className="footer-section-title"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true }}
-            >
+          <div>
+            <div className="footer-section-title">
               Social Media
-            </motion.div>
+            </div>
             <ul className="animated-social-buttons">
-              <motion.li 
+              <motion.li
                 style={{
                   '--i': '#0077B5',
                   '--j': '#005885'
                 }}
-                variants={socialVariants}
                 whileHover={{ scale: 1.1, y: -5 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -234,12 +142,11 @@ function Footer() {
                   <span className="social-title">LinkedIn</span>
                 </a>
               </motion.li>
-              <motion.li 
+              <motion.li
                 style={{
                   '--i': '#E4405F',
                   '--j': '#833AB4'
                 }}
-                variants={socialVariants}
                 whileHover={{ scale: 1.1, y: -5 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -258,13 +165,7 @@ function Footer() {
                 </a>
               </motion.li>
             </ul>
-            <motion.div 
-              className="footer-message-row"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
+            <div className="footer-message-row">
               <input
                 type="text"
                 placeholder="Contact Us"
@@ -281,37 +182,31 @@ function Footer() {
               >
                 Send
               </motion.button>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
-        <motion.hr 
-          className="footer-hr"
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          viewport={{ once: true }}
-        />
+        <hr className="footer-hr" />
         <div className="footer-bottom">
           Made with <span style={{ color: '#FF4A4A', fontSize: '1.1em', verticalAlign: 'middle' }}>♥</span> by the SARC Tech Team
         </div>
-      </motion.footer>
+      </footer>
 
       <AnimatePresence>
         {showPopup && (
-          <motion.div 
+          <motion.div
             className="footer-modal-overlay modal-backdrop show"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <motion.div 
+            <motion.div
               className="footer-modal modal-content show"
               initial={{ scale: 0.8, opacity: 0, y: 50 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.8, opacity: 0, y: 50 }}
-              transition={{ 
-                duration: 0.4, 
+              transition={{
+                duration: 0.4,
                 ease: [0.25, 0.46, 0.45, 0.94],
                 type: "spring",
                 stiffness: 300,
@@ -329,12 +224,7 @@ function Footer() {
               >
                 &times;
               </motion.button>
-              <motion.div 
-                style={{ marginBottom: '1.2rem' }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-              >
+              <div style={{ marginBottom: '1.2rem' }}>
                 <label className="footer-modal-label">
                   Your Message
                 </label>
@@ -344,13 +234,8 @@ function Footer() {
                   rows={3}
                   className="footer-modal-textarea"
                 />
-              </motion.div>
-              <motion.div 
-                style={{ marginBottom: '1.2rem' }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.2 }}
-              >
+              </div>
+              <div style={{ marginBottom: '1.2rem' }}>
                 <label className="footer-modal-label">
                   Your Name
                 </label>
@@ -361,13 +246,8 @@ function Footer() {
                   placeholder="Lionel Ronaldo"
                   className="footer-modal-email"
                 />
-              </motion.div>
-              <motion.div 
-                style={{ marginBottom: '1.2rem' }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.3 }}
-              >
+              </div>
+              <div style={{ marginBottom: '1.2rem' }}>
                 <label className="footer-modal-label">
                   How Can We Contact You
                 </label>
@@ -378,7 +258,7 @@ function Footer() {
                   placeholder="Email/PhoneNumber"
                   className="footer-modal-email"
                 />
-              </motion.div>
+              </div>
               <motion.button
                 onClick={handlePopupSend}
                 className="footer-modal-send button-press"
@@ -386,9 +266,6 @@ function Footer() {
                 style={{ opacity: sending ? 0.7 : 1, cursor: sending ? 'not-allowed' : 'pointer' }}
                 whileHover={{ scale: sending ? 1 : 1.05 }}
                 whileTap={{ scale: sending ? 1 : 0.95 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.4 }}
               >
                 {sending ? (
                   <>

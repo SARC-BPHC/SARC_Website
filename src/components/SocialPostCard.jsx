@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
-export default function SocialPostCard({ post, platform, index = 0 }) {
+export default function SocialPostCard({ post, platform }) {
   const cardRef = useRef();
 
   useEffect(() => {
@@ -40,49 +40,10 @@ export default function SocialPostCard({ post, platform, index = 0 }) {
 
   const config = platformConfig[platform];
 
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 40,
-      scale: 0.95
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        delay: index * 0.15,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
-  const hoverVariants = {
-    hover: {
-      y: -8,
-      scale: 1.02,
-      transition: {
-        duration: 0.3,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    },
-    tap: {
-      scale: 0.98,
-      transition: {
-        duration: 0.1
-      }
-    }
-  };
-
   return (
-    <motion.div 
-      ref={cardRef} 
+    <div
+      ref={cardRef}
       className="w-full max-w-[480px] mx-auto"
-      variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
     >
       <motion.div
         style={{
@@ -92,47 +53,40 @@ export default function SocialPostCard({ post, platform, index = 0 }) {
           border: '1px solid rgba(102, 252, 241, 0.1)',
           overflow: 'hidden'
         }}
-        variants={hoverVariants}
-        whileHover="hover"
-        whileTap="tap"
+        whileHover={{
+          y: -8,
+          scale: 1.02,
+          transition: {
+            duration: 0.3,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }
+        }}
+        whileTap={{
+          scale: 0.98,
+          transition: {
+            duration: 0.1
+          }
+        }}
       >
-        <motion.div
+        <div
           style={{
             background: config.gradient,
             padding: '16px 20px',
             borderBottom: '1px solid rgba(255,255,255,0.1)'
           }}
-          initial={{ opacity: 0, y: -10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: (index * 0.15) + 0.2, duration: 0.3 }}
-          viewport={{ once: true }}
         >
           <div className="flex items-center gap-5">
-            <motion.div
+            <div
               style={{
                 color: 'white',
                 display: 'flex',
                 alignItems: 'center',
                 marginRight: '8px'
               }}
-              initial={{ scale: 0, rotate: -180 }}
-              whileInView={{ scale: 1, rotate: 0 }}
-              transition={{ 
-                delay: (index * 0.15) + 0.3, 
-                duration: 0.4,
-                type: "spring",
-                stiffness: 200
-              }}
-              viewport={{ once: true }}
             >
               {config.icon}
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: (index * 0.15) + 0.4, duration: 0.3 }}
-              viewport={{ once: true }}
-            >
+            </div>
+            <div>
               <h3
                 style={{
                   color: 'white',
@@ -144,9 +98,9 @@ export default function SocialPostCard({ post, platform, index = 0 }) {
               >
                 {config.name}
               </h3>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
         <div
           style={{
@@ -194,19 +148,15 @@ export default function SocialPostCard({ post, platform, index = 0 }) {
           )}
         </div>
 
-        <motion.div
+        <div
           style={{
             background: 'linear-gradient(135deg, #202b3a 0%, #2a3441 100%)',
             padding: '10px 20px',
             borderTop: '1px solid rgba(102, 252, 241, 0.1)'
           }}
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: (index * 0.15) + 0.6, duration: 0.3 }}
-          viewport={{ once: true }}
         >
           <div className="flex items-center justify-between">
-            <motion.span
+            <span
               style={{
                 color: '#66FCF1',
                 fontSize: '0.75rem',
@@ -214,14 +164,10 @@ export default function SocialPostCard({ post, platform, index = 0 }) {
                 textTransform: 'uppercase',
                 letterSpacing: '1px'
               }}
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: (index * 0.15) + 0.7, duration: 0.3 }}
-              viewport={{ once: true }}
             >
               SARC BPHC
-            </motion.span>
-            <motion.div
+            </span>
+            <div
               style={{
                 width: '4px',
                 height: '4px',
@@ -229,19 +175,10 @@ export default function SocialPostCard({ post, platform, index = 0 }) {
                 background: config.gradient,
                 opacity: 0.8
               }}
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ 
-                delay: (index * 0.15) + 0.8, 
-                duration: 0.3,
-                type: "spring",
-                stiffness: 300
-              }}
-              viewport={{ once: true }}
-            ></motion.div>
+            ></div>
           </div>
-        </motion.div>
+        </div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 }

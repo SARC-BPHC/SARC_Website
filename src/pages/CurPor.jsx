@@ -2,16 +2,16 @@ import { motion } from "framer-motion";
 import PersonCard from "../components/PersonCard";
 import "./CurPor.css";
 
-import ShreyaS from "../PORsImgs/Sakshi.png";
+import ShreyaS from "../PORsImgs/ShreyaS.png";
 import ArnavB from "../PORsImgs/ArnavB.jpg";
 import Rachit from "../PORsImgs/Rachit.png";
 import VedantB from "../PORsImgs/VedantB.jpg";
-import Antariksha from "../PORsImgs/Akash.png";
+import Antariksha from "../PORsImgs/Antariksha.png";
 import AryanD from "../PORsImgs/AryanD.png";
-import AnshitaP from "../PORsImgs/Vedant.png";
+import AnshitaP from "../PORsImgs/AnshitaP.png";
 import AreeshaS from "../PORsImgs/AreeshaS.jpg";
-import RibhavT from "../PORsImgs/Romil.png";
-import AnkitM from "../PORsImgs/Prathemesh.png";
+import RibhavT from "../PORsImgs/RibhavT.png";
+import AnkitM from "../PORsImgs/AnkitM.jpg";
 
 const peopleData = [
   {
