@@ -1,10 +1,145 @@
+.curpor-page {
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+.curpor-hero {
+  padding: 6rem 0 3rem 0;
+  background: linear-gradient(135deg, #202833 0%, #2a3441 50%, #1a222e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.curpor-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(102, 252, 241, 0.06) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.curpor-hero-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.curpor-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(102, 252, 241, 0.1);
+  border: 1px solid rgba(102, 252, 241, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #66FCF1;
+  backdrop-filter: blur(10px);
+}
+
+.curpor-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(135deg, #ffffff 0%, #66FCF1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.curpor-subtitle {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.people-section {
+  background: #f8f9fa;
+  padding: 4rem 0;
+}
+
 .people-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* much smaller min width */
-  column-gap: 64px;
-  row-gap: 16px;
-  padding: 0px 32px 32px 32px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
   justify-items: center;
-  background: #202833;
-  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.person-item {
+  width: 100%;
+  max-width: 320px;
+}
+
+@media (max-width: 768px) {
+  .curpor-hero {
+    padding: 5rem 0 2rem 0;
+  }
+  
+  .people-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .curpor-title {
+    font-size: 1.8rem;
+  }
+  
+  .curpor-subtitle {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .curpor-hero {
+    padding: 4rem 0 2rem 0;
+  }
+  
+  .people-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .person-item {
+    max-width: 100%;
+  }
+  
+  .people-section {
+    padding: 3rem 0;
+  }
+  
+  .curpor-hero-content {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .curpor-hero {
+    padding: 3rem 0 1.5rem 0;
+  }
+  
+  .people-grid {
+    gap: 0.8rem;
+    padding: 0 0.25rem;
+  }
+  
+  .people-section {
+    padding: 2.5rem 0;
+  }
 }

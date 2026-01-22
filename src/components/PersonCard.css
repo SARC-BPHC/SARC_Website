@@ -11,31 +11,43 @@
 }
 
 .person-card {
-  background: #141D2A;
-  border-radius: 16px;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+  background: linear-gradient(135deg, #1a2332 0%, #202b3a 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
   display: flex;
   align-items: stretch;
   padding: 0;
   width: 100%;
   height: 220px;
   min-height: 206px;
-  transition: background 0.3s, box-shadow 0.3s;
+  transition: all var(--animation-speed-normal) var(--animation-easing-smooth);
+  will-change: background, box-shadow, transform, border-radius;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(102, 252, 241, 0.1);
 }
 
 .person-card:hover {
-  background: #19212B;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #202b3a 0%, #2a3441 100%);
+  border-radius: 24px;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.25);
+  border-color: rgba(102, 252, 241, 0.2);
 }
 
 .person-image {
   width: 133px;
   height: 100%;
-  border-radius: 16px 0 0 16px;
+  border-radius: 20px 0 0 20px;
   object-fit: cover;
   background: #fffbe7;
   flex-shrink: 0;
   display: block;
+  transition: transform var(--animation-speed-normal) var(--animation-easing-smooth);
+  will-change: transform;
+}
+
+.person-card:hover .person-image {
+  border-radius: 24px 0 0 24px;
 }
 
 .person-info {
@@ -52,61 +64,78 @@
 }
 
 .person-designation {
-  font-size: 1rem;
-  font-weight: 600;
-  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #66FCF1;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   margin: 0;
+  opacity: 0.9;
 }
 
 .person-name {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: white;
   word-break: break-word;
-  margin: 0;
+  margin: 4px 0;
+  line-height: 1.2;
 }
 
 .firstname {
   font-weight: 700;
+  font-size: 1.4rem;
 }
 
 .lastname {
-  font-weight: 400;
+  font-weight: 300;
+  font-size: 1.4rem;
+  opacity: 0.9;
 }
 
 .person-year {
-  font-size: 1rem;
-  color: white;
+  font-size: 0.85rem;
+  color: #b0b0b0;
   margin: 0;
-  transition: color 0.2s;
+  font-weight: 500;
+  transition: color var(--animation-speed-fast) var(--animation-easing-smooth);
+  will-change: color;
+  opacity: 0.8;
 }
 
 .person-card:hover .person-year {
   color: #66FCF1;
+  opacity: 1;
 }
 
 .linkedin-icon-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: #fff;
-  border: 2px solid #222;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  margin-top: 6px;
-  transition: background 0.2s, border-color 0.2s;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 2px solid rgba(102, 252, 241, 0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-top: 8px;
+  transition: all var(--animation-speed-fast) var(--animation-easing-smooth);
   text-decoration: none;
+  will-change: background, border-color, transform, box-shadow;
 }
 
 .linkedin-icon-btn:hover {
   border-color: #66FCF1;
+  background: linear-gradient(135deg, #66FCF1 0%, #4ecdc4 100%);
+  box-shadow: 0 6px 20px rgba(102, 252, 241, 0.3);
+  transform: translateY(-2px);
+}
+
+.linkedin-icon-btn:hover .linkedin-logo path {
+  fill: white;
 }
 
 .linkedin-logo {
@@ -115,4 +144,176 @@
   height: 22px;
 }
 
+.desktop-card {
+  display: flex;
+}
+
+.mobile-card {
+  display: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 480px) {
+  .desktop-card {
+    display: none;
+  }
+  
+  .mobile-card {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .person-card-outer {
+    max-width: 100%;
+    padding: 10px 6px;
+  }
+  
+  .person-card {
+    height: 180px;
+    min-height: 180px;
+  }
+  
+  .person-image {
+    width: 110px;
+  }
+  
+  .person-info {
+    padding: 0 10px;
+    gap: 4px;
+  }
+  
+  .person-designation {
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+  }
+  
+  .person-name {
+    font-size: 1.2rem;
+  }
+  
+  .firstname, .lastname {
+    font-size: 1.2rem;
+  }
+  
+  .person-year {
+    font-size: 0.75rem;
+  }
+  
+  .linkedin-icon-btn {
+    width: 32px;
+    height: 32px;
+    margin-top: 6px;
+  }
+  
+  .linkedin-logo {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .person-card-outer {
+    padding: 8px 4px;
+  }
+
+  .person-card {
+    height: 120px;
+    min-height: 120px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .person-image {
+    display: block;
+    width: 90px;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+  }
+
+  .person-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px;
+    gap: 4px;
+    text-align: center;
+    height: 100%;
+  }
+
+  .person-designation {
+    font-size: 0.6rem;
+    letter-spacing: 0.5px;
+  }
+
+  .person-name {
+    font-size: 1rem;
+    margin: 2px 0;
+  }
+
+  .firstname, .lastname {
+    font-size: 1rem;
+  }
+
+  .person-year {
+    font-size: 0.7rem;
+  }
+
+  .linkedin-icon-btn {
+    width: 28px;
+    height: 28px;
+    margin-top: 4px;
+  }
+
+  .linkedin-logo {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 320px) {
+  .person-card {
+    height: 100px;
+    min-height: 100px;
+  }
+
+  .person-image {
+    width: 75px;
+  }
+
+  .person-info {
+    padding: 6px 8px;
+    gap: 2px;
+  }
+
+  .person-name {
+    font-size: 0.9rem;
+  }
+
+  .firstname, .lastname {
+    font-size: 0.9rem;
+  }
+
+  .person-designation {
+    font-size: 0.55rem;
+  }
+
+  .person-year {
+    font-size: 0.65rem;
+  }
+
+  .linkedin-icon-btn {
+    width: 24px;
+    height: 24px;
+    margin-top: 2px;
+  }
+
+  .linkedin-logo {
+    width: 14px;
+    height: 14px;
+  }
+}
 

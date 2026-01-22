@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from 'emailjs-com';
 import './Footer.css';
 
@@ -47,58 +48,123 @@ function Footer() {
 
   return (
     <>
-      <footer id="footer" className="footer-main">
+      <footer
+        id="footer"
+        className="footer-main"
+      >
         <div className="footer-inner">
           <div>
-            <div className="footer-section-title">Useful Links</div>
+            <div className="footer-section-title">
+              SARC BPHC
+            </div>
+            <div className="footer-brand-subtitle">
+              Student Alumni Relations Cell<br />
+              BITS Pilani, Hyderabad Campus
+            </div>
+          </div>
+
+          <div>
+            <div className="footer-section-title">
+              Useful Links
+            </div>
             <div className="footer-section-links">
-              <Link to="/home" className="footer-link">Home</Link>
-              <Link to="/events" className="footer-link">Events</Link>
-              <Link to="/podcast" className="footer-link">Alumni Unplugged</Link>
+              <div>
+                <Link to="/home" className="footer-link">Home</Link>
+              </div>
+              <div>
+                <Link to="/events" className="footer-link">Events</Link>
+              </div>
+              <div>
+                <Link to="/podcast" className="footer-link">Alumni Unplugged</Link>
+              </div>
             </div>
           </div>
 
           <div>
-            <div className="footer-section-title">Contacts</div>
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', marginBottom: '0.5rem' }}>
+            <div className="footer-section-title">
+              Contacts
+            </div>
+            <div
+              style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', marginBottom: '0.5rem' }}
+            >
               <span style={{ marginTop: '2px' }}>
-                <svg width="18" height="18" fill="#d1cfff" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+                <svg width="18" height="18" fill="#d1cfff" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" /></svg>
               </span>
-              <span style={{ fontSize: '1rem', color: '#e0e0f0' }}>
-                BITS Pilani, Hyderabad Campus<br />
-                Hyderabad, Telangana 500078, IN
-              </span>
+              <a
+                href="https://maps.app.goo.gl/Z4JAb8HqnNSu6dXX7"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span style={{ fontSize: '1rem', color: '#e0e0f0' }}>
+                  BITS Pilani, Hyderabad Campus<br />
+                  Hyderabad, Telangana 500078, IN
+                </span>
+              </a>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-              <span>
-                <svg width="18" height="18" fill="#d1cfff" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20v-9.99l7.99 7.99c.39.39 1.02.39 1.41 0L20 10.01V20H4z"/></svg>
+            <div
+              style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}
+            >
+              <span style={{ display: 'flex', alignItems: 'center' }}>
+                <svg width="18" height="18" fill="#d1cfff" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#d1cfff" strokeWidth="2" fill="none"/><polyline points="22,6 12,13 2,6" stroke="#d1cfff" strokeWidth="2" fill="none"/></svg>
               </span>
-              <span style={{ fontSize: '1rem', color: '#e0e0f0' }}>
-                sarc@hyderabad(.)bits-pilani.ac.in
-              </span>
+              <a href="mailto:sarc@hyderabad.bits-pilani.ac.in">
+                <span style={{ fontSize: '1rem', color: '#e0e0f0' }}>
+                  sarc@hyderabad.bits-pilani.ac.in
+                </span>
+              </a>
             </div>
           </div>
 
           <div>
-            <div className="footer-section-title">Social Media</div>
-            <div className="footer-social-row">
-              <a
-                href="https://in.linkedin.com/company/sarcbphc"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-social"
-              >
-                <svg width="20" height="20" fill="#d1cfff" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.1-.9-2-2-2s-2 .9-2 2v4.5h-3v-9h3v1.17c.59-.53 1.36-.92 2.22-.92 1.66 0 3 1.34 3 3v5.75z"/></svg>
-              </a>
-              <a
-                href="https://www.instagram.com/sarc.bphc/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-social"
-              >
-                <svg width="20" height="20" fill="#d1cfff" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 3.25A5.25 5.25 0 1 1 6.75 12 5.25 5.25 0 0 1 12 6.75zm0 1.5A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8.25zm5.5-.75a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></svg>
-              </a>
+            <div className="footer-section-title">
+              Social Media
             </div>
+            <ul className="animated-social-buttons">
+              <motion.li
+                style={{
+                  '--i': '#0077B5',
+                  '--j': '#005885'
+                }}
+                whileHover={{ scale: 1.1, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <a
+                  href="https://in.linkedin.com/company/sarcbphc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="animated-social-link"
+                >
+                  <span className="social-icon">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </span>
+                  <span className="social-title">LinkedIn</span>
+                </a>
+              </motion.li>
+              <motion.li
+                style={{
+                  '--i': '#E4405F',
+                  '--j': '#833AB4'
+                }}
+                whileHover={{ scale: 1.1, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <a
+                  href="https://www.instagram.com/sarc.bphc/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="animated-social-link"
+                >
+                  <span className="social-icon">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 3.25A5.25 5.25 0 1 1 6.75 12 5.25 5.25 0 0 1 12 6.75zm0 1.5A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8.25zm5.5-.75a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/>
+                    </svg>
+                  </span>
+                  <span className="social-title">Instagram</span>
+                </a>
+              </motion.li>
+            </ul>
             <div className="footer-message-row">
               <input
                 type="text"
@@ -107,13 +173,15 @@ function Footer() {
                 onChange={e => setMessage(e.target.value)}
                 className="footer-message-input"
               />
-              <button
+              <motion.button
                 onClick={handleSendClick}
-                className="footer-message-send"
+                className="footer-message-send button-press"
                 disabled={!message.trim()}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Send
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
@@ -123,63 +191,93 @@ function Footer() {
         </div>
       </footer>
 
-      {showPopup && (
-        <div className="footer-modal-overlay">
-          <div className="footer-modal">
-            <button
-              onClick={handleClosePopup}
-              className="footer-modal-close"
-              aria-label="Close"
-              title="Close"
+      <AnimatePresence>
+        {showPopup && (
+          <motion.div
+            className="footer-modal-overlay modal-backdrop show"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.div
+              className="footer-modal modal-content show"
+              initial={{ scale: 0.8, opacity: 0, y: 50 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.8, opacity: 0, y: 50 }}
+              transition={{
+                duration: 0.4,
+                ease: [0.25, 0.46, 0.45, 0.94],
+                type: "spring",
+                stiffness: 300,
+                damping: 25
+              }}
             >
-              &times;
-            </button>
-            <div style={{ marginBottom: '1.2rem' }}>
-              <label className="footer-modal-label">
-                Your Message
-              </label>
-              <textarea
-                value={popupMessage}
-                onChange={e => setPopupMessage(e.target.value)}
-                rows={3}
-                className="footer-modal-textarea"
-              />
-            </div>
-            <div style={{ marginBottom: '1.2rem' }}>
-              <label className="footer-modal-label">
-                Your Name
-              </label>
-              <input
-                type="email"
-                value={popupEmail}
-                onChange={e => setPopupEmail(e.target.value)}
-                placeholder="Lionel Ronaldo"
-                className="footer-modal-email"
-              />
-            </div>
-            <div style={{ marginBottom: '1.2rem' }}>
-              <label className="footer-modal-label">
-                How Can We Contact You
-              </label>
-              <input
-                type="Contact"
-                value={popupContact}
-                onChange={e => setPopupContact(e.target.value)}
-                placeholder="Email/PhoneNumber"
-                className="footer-modal-email"
-              />
-            </div>
-            <button
-              onClick={handlePopupSend}
-              className="footer-modal-send"
-              disabled={!popupMessage.trim() || !popupEmail.trim() ||!popupContact.trim()|| sending}
-              style={{ opacity: sending ? 0.7 : 1, cursor: sending ? 'not-allowed' : 'pointer' }}
-            >
-              {sending ? 'Sending...' : 'Send'}
-            </button>
-          </div>
-        </div>
-      )}
+              <motion.button
+                onClick={handleClosePopup}
+                className="footer-modal-close"
+                aria-label="Close"
+                title="Close"
+                whileHover={{ scale: 1.1, rotate: 90 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.2 }}
+              >
+                &times;
+              </motion.button>
+              <div style={{ marginBottom: '1.2rem' }}>
+                <label className="footer-modal-label">
+                  Your Message
+                </label>
+                <textarea
+                  value={popupMessage}
+                  onChange={e => setPopupMessage(e.target.value)}
+                  rows={3}
+                  className="footer-modal-textarea"
+                />
+              </div>
+              <div style={{ marginBottom: '1.2rem' }}>
+                <label className="footer-modal-label">
+                  Your Name
+                </label>
+                <input
+                  type="email"
+                  value={popupEmail}
+                  onChange={e => setPopupEmail(e.target.value)}
+                  placeholder="Lionel Ronaldo"
+                  className="footer-modal-email"
+                />
+              </div>
+              <div style={{ marginBottom: '1.2rem' }}>
+                <label className="footer-modal-label">
+                  How Can We Contact You
+                </label>
+                <input
+                  type="Contact"
+                  value={popupContact}
+                  onChange={e => setPopupContact(e.target.value)}
+                  placeholder="Email/PhoneNumber"
+                  className="footer-modal-email"
+                />
+              </div>
+              <motion.button
+                onClick={handlePopupSend}
+                className="footer-modal-send button-press"
+                disabled={!popupMessage.trim() || !popupEmail.trim() || !popupContact.trim() || sending}
+                style={{ opacity: sending ? 0.7 : 1, cursor: sending ? 'not-allowed' : 'pointer' }}
+                whileHover={{ scale: sending ? 1 : 1.05 }}
+                whileTap={{ scale: sending ? 1 : 0.95 }}
+              >
+                {sending ? (
+                  <>
+                    <span className="loading-spinner" style={{ marginRight: '8px' }}></span>
+                    Sending...
+                  </>
+                ) : 'Send'}
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
